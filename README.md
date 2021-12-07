@@ -176,13 +176,23 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Scans the whole drive and store that data and file details in the database using the console application or a service
+- [x] Connect to the database using the .net backend and get all the files and its details
+- [x] Show the files and details in the frontend
+- [ ] Use the signalR server hub to notify everyone if there is a change in the server
+- [ ] Fix the UI issues
+    - [x] Video is not aligned going out of the screen
+    - [ ] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
+    - [ ] Video name box should be of same size and look consistent
+- [ ] Themes and background should be saved in the database for the user
+- [ ] User profile page should have a preferences check boxes where user will enter the file preferences like video audio or images or movies tv series or music videos. Preferences button should be in the settings
+- [ ] And in the settings images should be selected only if the check box Is selected.
+- [ ] Show default thumbnail for the video/audio
+- [ ] Create thumbnails for video in .net
+- [ ] While uplaoding user has to provide some basic info for the file like file title, description, genre, type (movie/tv series/music video) and file type like (video/audio/image)
+- [ ] Other than the above details there will be some more details which will not be shown to the user like date time of the upload, user name who uploaded the file, etc.
+- [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
+- [ ] Dashboard items can be restricted from users to user. Like for Admin there should be a field which will show active users / no. Of active users.
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
