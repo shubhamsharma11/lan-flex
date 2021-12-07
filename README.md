@@ -24,6 +24,12 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+![version](https://img.shields.io/badge/version-2.1.0-blue.svg)
+[![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-vuetify-material-dashboard.svg)](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-vuetify-material-dashboard.svg?maxAge=259200)](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues?q=is%3Aissue+is%3Aclosed)
+[![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard)
+[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+
 
 
 <!-- PROJECT LOGO -->
