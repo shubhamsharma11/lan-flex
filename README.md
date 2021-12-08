@@ -35,23 +35,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/shubham-sharma-0834/lan-flex">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Lan Flex</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A quick and easy way to view and upload any file from any device.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/shubham-sharma-0834/lan-flex"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/shubham-sharma-0834/lan-flex">View Demo</a>
+    -·-
+    <a href="https://github.com/shubham-sharma-0834/lan-flex/issues">Report Bug</a>
+    -·-
+    <a href="https://github.com/shubham-sharma-0834/lan-flex/issues">Request Feature</a>
   </p>
 </div>
 
@@ -83,18 +83,39 @@
   </ol>
 </details>
 
+Use for instance <https://github.com/ekalinin/github-markdown-toc>:
+
+> * [Title / Repository Name](#title--repository-name)
+>   * [About / Synopsis](#about--synopsis)
+>   * [Table of contents](#table-of-contents)
+>   * [Installation](#installation)
+>   * [Usage](#usage)
+>     * [Screenshots](#screenshots)
+>     * [Features](#features)
+>   * [Code](#code)
+>     * [Content](#content)
+>     * [Requirements](#requirements)
+>     * [Limitations](#limitations)
+>     * [Build](#build)
+>     * [Deploy (how to install build product)](#deploy-how-to-install-build-product)
+>   * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
+>   * [Contributing / Reporting issues](#contributing--reporting-issues)
+>   * [License](#license)
+>   * [About Nuxeo](#about-nuxeo)
+
 
 # LanFlex
 
-LanFlex is project which can be deployed to a local are network and provides a way to view and upload files (Video, Audio and Images) from all the devices.
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+LanFlex is a project which can be deployed to a local are network and provides a way to view and upload files (Video, Audio and Images) from all the devices.
+It has mainly 4 parts :
+> * Drive Scanner : A Console application to scan the specified folder and store the file details in the database.
+> * Fron-End : A Vue JS project which displays the list of files and show the content of the file.
+> * Back-End : An ASP .Net Core project which provides the WEB APIs to show and manipulate data.
+> * Database : A SQL Server database to store the files details.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-[![Product Name Screen Shot][product-screenshot2]](https://example.com)
-
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+-------------------------------------------
 
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
@@ -104,6 +125,18 @@ Here's why:
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
 Use the `BLANK_README.md` to get started.
+
+
+* What is it, what does it do / Abstract
+* Project status: working/prototype
+* Nuxeo Support
+
+See real examples:
+
+* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
+* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
+* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
+
 
 <p align="right">[<a href="#top">back to top</a>]</p>
 
@@ -157,6 +190,28 @@ _Below is an example of how you can instruct your audience on installing and set
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
+Sample:
+
+* From the Nuxeo Marketplace: install [the Sample Nuxeo Package](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-sample).
+* From the command line: `nuxeoctl mp-install nuxeo-sample`
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install foobar
+```
+```python
+import foobar
+
+# returns 'words'
+foobar.pluralize('word')
+
+# returns 'geese'
+foobar.pluralize('goose')
+
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
 
 <p align="right">[<a href="#top">back to top</a>]</p>
 
@@ -169,9 +224,43 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
+### Screenshots
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot2]](https://example.com)
+
+### Features
+
 <p align="right">[<a href="#top">back to top</a>]</p>
 
+## Code
 
+[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=/nuxeo/addons_nuxeo-sample-project-master)](https://qa.nuxeo.org/jenkins/job/nuxeo/job/addons_nuxeo-sample-project-master/)
+
+### Requirements
+
+See [CORG/Compiling Nuxeo from sources](http://doc.nuxeo.com/x/xION)
+
+Sample: <https://github.com/nuxeo/nuxeo/blob/master/nuxeo-distribution/README.md>
+
+### Limitations
+
+Sample: <https://github.com/nuxeo-archives/nuxeo-features/tree/master/nuxeo-elasticsearch>
+
+### Build
+
+    mvn clean install
+
+Build options:
+
+* ...
+
+### Deploy (how to install build product)
+
+Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform:
+
+ > Copy the built artifacts into `$NUXEO_HOME/templates/custom/bundles/` and activate the `custom` template.
+
+## Resources (Documentation and other links)
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -194,14 +283,19 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
 - [ ] Dashboard items can be restricted from users to user. Like for Admin there should be a field which will show active users / no. Of active users.
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/shubham-sharma-0834/lan-flex/issues) for a full list of proposed features (and known issues).
 
 <p align="right">[<a href="#top">back to top</a>]</p>
 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributing / Reporting issues
+
+Link to JIRA component (or project if there is no component for that project). Samples:
+
+* [Link to component](https://jira.nuxeo.com/issues/?jql=project%20%3D%20NXP%20AND%20component%20%3D%20Elasticsearch%20AND%20Status%20!%3D%20%22Resolved%22%20ORDER%20BY%20updated%20DESC%2C%20priority%20DESC%2C%20created%20ASC)
+* [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -222,6 +316,7 @@ Don't forget to give the project a star! Thanks again!
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 <p align="right">[<a href="#top">back to top</a>]</p>
 
@@ -259,15 +354,15 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/shubham-sharma-0834/lan-flex/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/shubham-sharma-0834/lan-flex/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/shubham-sharma-0834/lan-flex/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/shubham-sharma-0834/lan-flex/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-url]: https://github.com/shubham-sharma-0834/lan-flex/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
