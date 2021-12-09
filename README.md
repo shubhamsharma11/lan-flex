@@ -130,6 +130,7 @@ Use the `BLANK_README.md` to get started.
 * What is it, what does it do / Abstract
 * Project status: working/prototype
 * Nuxeo Support
+* font-family: "Nunito", sans-serif;
 
 See real examples:
 
