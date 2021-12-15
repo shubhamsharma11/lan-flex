@@ -40,10 +40,9 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
     <img src="images/audio wares (1).gif" alt="Logo" width="80" height="80">
     <img src="images/audio wares (2).gif" alt="Logo" width="80" height="80">
-    <img src="images/laudio wares (1).png" alt="Logo" width="80" height="80">
+    <img src="images/audio wares (1).png" alt="Logo" width="80" height="80">
     <img src="images/audio wares.png" alt="Logo" width="80" height="80">
     <img src="images/audio wares.gif" alt="Logo" width="80" height="80">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Lan Flex</h3>
