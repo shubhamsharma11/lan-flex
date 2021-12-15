@@ -38,6 +38,12 @@
   <a href="https://github.com/shubham-sharma-0834/lan-flex">
     <img class="fadein" src="https://lanflex.in/wp-content/plugins/under-construction-page/themes/light_bulb/light_bulb_off.png" alt="Switching on the site soon ..." width="80" height="80">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/audio wares (1).gif" alt="Logo" width="80" height="80">
+    <img src="images/audio wares (2).gif" alt="Logo" width="80" height="80">
+    <img src="images/laudio wares (1).png" alt="Logo" width="80" height="80">
+    <img src="images/audio wares.png" alt="Logo" width="80" height="80">
+    <img src="images/audio wares.gif" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Lan Flex</h3>
