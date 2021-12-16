@@ -36,9 +36,6 @@
 <br />
 <div align="center">
   <a href="https://github.com/shubham-sharma-0834/lan-flex">
-    
-    <img src="audio_wares-removebg-preview.png" alt="Logo" width="250" height="250">
-    <img src="videocall-designify.png" alt="Logo" width="250" height="250">
     <img class="fadein" src="https://lanflex.in/wp-content/plugins/under-construction-page/themes/light_bulb/light_bulb_off.png" alt="Switching on the site soon ..." width="80" height="80">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
     <img src="images/audio wares (1).gif" alt="Logo" width="80" height="80">
@@ -48,6 +45,10 @@
     <img src="images/audio wares.gif" alt="Logo" width="80" height="80">
   </a>
 
+  
+  <img src="images/audio_wares-removebg-preview.png" alt="Logo" width="250" height="250">
+  <img src="images/videocall-designify.png" alt="Logo" width="250" height="250">
+  
   <h3 align="center">Lan Flex</h3>
 
   <p align="center">
