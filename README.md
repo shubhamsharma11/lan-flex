@@ -147,6 +147,7 @@ See real examples:
 * <https://github.com/nuxeo/nuxeo/blob/master/README.md>
 * <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
 * <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
+* https://doodleipsum.com/
 
 
 <p align="right">[<a href="#top">back to top</a>]</p>
