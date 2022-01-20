@@ -295,6 +295,10 @@ Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform
 - [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
 - [ ] Dashboard items can be restricted from users to user. Like for Admin there should be a field which will show active users / no. Of active users.
 - [ ] Use the TMDB API in the project to get the different details of the Movie / TV Series (https://www.themoviedb.org/u/ssharma0834 | https://www.themoviedb.org/documentation/api
+  - [ ] To get the movie by id -> https://api.themoviedb.org/3/movie/popular?api_key=cdadec61df96e7b7cdd116432ca9aaa0
+  - [ ] To list all the popular movies -> https://api.themoviedb.org/3/discover/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0
+  - [ ] To search for any movie -> https://api.themoviedb.org/3/search/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0&query=dil
+
 
 See the [open issues](https://github.com/shubham-sharma-0834/lan-flex/issues) for a full list of proposed features (and known issues).
 
