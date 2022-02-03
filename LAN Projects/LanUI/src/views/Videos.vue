@@ -18,10 +18,10 @@
         <v-card>
           <v-card-text>
             <video-player
-              :source="videoSrc.FilePath"
+              :source="videoSrc.Name"
               :type="videoSrc.Type"
               :auto-play="true"
-              :title="videoSrc.Name"
+              :title="videoSrc.FilePath"
             />
           </v-card-text>
         </v-card>
@@ -60,7 +60,7 @@
 <script>
   import VideoPlayer from './dashboard/components/Player/VideoPlayer.vue'
   import * as axios from 'axios'
-  import { BASE_URL } from '../constants.js'
+  import { variables } from '../constants.js'
 
   export default {
     name: 'Videos',
@@ -77,9 +77,13 @@
 
     methods: {
       getVideos () {
-        axios.get(`${BASE_URL}/GetVideos`)
+        axios.get(`${variables.BASE_URL}/GetVideos`)
           .then(response => {
-            this.videoList = response
+            this.videoList = response.data
+
+            this.videoList.forEach(el => {
+              el.FilePath = variables.FILE_URL + '/' + el.Name
+            })
           })
       },
     },

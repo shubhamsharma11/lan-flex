@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -89,12 +90,44 @@ namespace LanFlexWebAPI.Controllers
                     */
 
                     var fileName = file.FileName;
+                    var filePath = _webHost.ContentRootPath + Constants.UploadFolderName + fileName;
+                    var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);
+                    var typeCode = string.Empty;
+                    var fileSize = 0L;
 
-                    var filePath = appSettings.fullPath + fileName;
+                    switch (extension)
+                    {
+                        case "mp4":
+                            typeCode = "video/mp4;codecs=\''avc1.4D401E, mp4a.40.2\''";
+                            break;
+                        case "webm":
+                            typeCode = "video/webm;codecs=\''vp8, opus\''";
+                            break;
+                    }
+                    using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))
+                    {
+                        mySqlConnection.Open();
+
+                        MySqlCommand cmd = mySqlConnection.CreateCommand();
+                        cmd.CommandText = Constants.InsertFileStmt;
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@Name", file.FileName);
+                        cmd.Parameters.AddWithValue("@Path", file.FileName);
+                        cmd.Parameters.AddWithValue("@Extension", extension);
+                        cmd.Parameters.AddWithValue("@Size", fileSize);
+                        cmd.Parameters.AddWithValue("@LastUpdatedAt", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
+                        cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
+                        cmd.Parameters.AddWithValue("@FileTypeCode", typeCode);
+
+                        cmd.ExecuteNonQuery();
+                        mySqlConnection.Close();
+                    }
 
                     using (var stream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(stream);
+                        fileSize = stream.Length;
                     }
                 }
                 return Ok(new { status = true, message = "File Uploaded Successfully" });

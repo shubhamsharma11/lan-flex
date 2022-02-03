@@ -211,7 +211,7 @@
                     :disabled="isUploading"
                     :accept="selectedFileType.fileTypeCode"
                     @change="onSelectFile"
-                  />
+                  >
                   <v-row
                     v-if="isUploading"
                     justify="center"
@@ -274,7 +274,7 @@
 
 <script>
   import * as axios from 'axios'
-  import { BASE_URL } from '../constants.js'
+  import { variables } from '../constants.js'
 
   const STATUS_INITIAL = 0
   const STATUS_FILE_SELECTED = 1
@@ -396,7 +396,7 @@
         formData.append('file', this.selectedFile)
 
         var self = this
-        const url = `${BASE_URL}/FileUpload`
+        const url = `${variables.BASE_URL}/FileUpload`
         axios.post(
           url,
           formData,
@@ -411,7 +411,6 @@
           },
         )
           .then(res => {
-            console.log(res)
             this.currentStatus = STATUS_SUCCESS
             this.status.color = 'success'
             this.status.message = res.message
