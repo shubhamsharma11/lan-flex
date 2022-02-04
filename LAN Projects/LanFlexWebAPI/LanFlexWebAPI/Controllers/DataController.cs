@@ -139,20 +139,3 @@ namespace LanFlexWebAPI.Controllers
         }
     }
 }
-
-
-
-//// D:\Projects\LAN Projects\LanFlexWebAPI\LanFlexWebAPI
-//var physicalPath = _webHost.ContentRootPath;
-//// D:\Projects\LAN Projects\LanFlexWebAPI\LanFlexWebAPI
-//var path = Directory.GetCurrentDirectory();
-
-//var fullPath = @"D:\Projects\LAN Projects\LanUI\public\LanFlexData\Videos\";
-//var fileName = file.FileName;
-
-//var filePath = fullPath + fileName;
-
-//using (var stream = System.IO.File.Create(filePath))
-//{
-//    await file.CopyToAsync(stream);
-//}
