@@ -2,14 +2,6 @@
   <v-container
     fluid
   >
-    <!-- <base-material-snackbar
-      v-model="status.display"
-      :type="status.isSuccess ? 'success' : 'error'"
-      top
-      center
-    >
-      Welcome to <span class="font-weight-bold">&nbsp;MATERIAL DASHBOARD&nbsp;</span> — a beautiful admin panel for every web developer.
-    </base-material-snackbar> -->
     <v-row v-if="videoSrc.FilePath">
       <v-col
         cols="12"
