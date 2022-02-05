@@ -1,8 +1,4 @@
 module.exports = {
-  devServer: {
-    proxy: 'http://192.168.43.12:49622/UploadedFiles/',
-  },
-
   transpileDependencies: ['vuetify'],
 
   pluginOptions: {

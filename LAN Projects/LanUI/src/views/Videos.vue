@@ -10,10 +10,10 @@
         <v-card>
           <v-card-text>
             <video-player
-              :source="videoSrc.Name"
+              :source="videoSrc.FilePath"
               :type="videoSrc.Type"
               :auto-play="true"
-              :title="videoSrc.FilePath"
+              :title="videoSrc.Name"
             />
           </v-card-text>
         </v-card>
