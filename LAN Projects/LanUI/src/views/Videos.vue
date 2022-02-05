@@ -67,6 +67,10 @@
       dialog: false,
     }),
 
+    mounted () {
+      this.getVideos()
+    },
+
     methods: {
       getVideos () {
         axios.get(`${variables.BASE_URL}/GetVideos`)
@@ -80,9 +84,6 @@
       },
     },
 
-    mounted () {
-      this.getVideos()
-    },
   }
 </script>
 <style>

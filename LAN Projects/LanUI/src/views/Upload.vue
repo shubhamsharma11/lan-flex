@@ -25,9 +25,9 @@
               >
                 <div class="dropbox">
                   <input
+                    ref="file"
                     type="file"
                     name="file"
-                    ref="file"
                     class="input-file"
                     :disabled="isUploading"
                     :accept="selectedFileType.fileTypeCode"
@@ -87,7 +87,7 @@
                   :error-messages="errorMessages"
                 />
               </v-col>
-              <v-divider cols="12"></v-divider>
+              <v-divider cols="12" />
               <v-col
                 cols="12"
                 class="text-right"
@@ -95,7 +95,7 @@
                 <v-btn
                   color="primary"
                   outlined
-                  :disabled="!this.fileTitle"
+                  :disabled="!fileTitle"
                   @click="onUploadFile"
                 >
                   Upload File
@@ -232,7 +232,7 @@
         // If the no file is selected dont upload the file
         // TODO: Validate all the checks in a function and then only enable the upload button else disable it
 
-        if (!this.selectedFile || !this.fileTitle || !(this.$refs['fileTitle'].validate(true))) return
+        if (!this.selectedFile || !this.fileTitle || !(this.$refs.fileTitle.validate(true))) return
 
         // append the files to FormData
 
@@ -276,7 +276,7 @@
         this.currentStatus = STATUS_INITIAL
         this.selectedFileType = this.fileTypes[0]
         this.fileTitle = ''
-        this.$refs['fileTitle'].reset()
+        this.$refs.fileTitle.reset()
         this.selectedFile = null
       },
     },
