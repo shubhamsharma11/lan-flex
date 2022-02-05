@@ -10,8 +10,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace LanFlexWebAPI.Controllers
 {
@@ -76,8 +74,10 @@ namespace LanFlexWebAPI.Controllers
         [RequestFormLimits(MultipartBodyLengthLimit = maxFileSize)]
         // POST video/UploadFile
         [HttpPost("FileUpload")]
-        public ActionResult FileUpload(IFormFile file)
+        public ActionResult FileUpload(IFormCollection formData)
         {
+            IFormFile file = formData.Files[0];
+            string fileTitle = formData["name"];
             try
             {
                 if (file != null)
@@ -112,7 +112,7 @@ namespace LanFlexWebAPI.Controllers
                         cmd.CommandText = Constants.InsertFileStmt;
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.Parameters.AddWithValue("@Name", file.FileName);
+                        cmd.Parameters.AddWithValue("@Name", string.IsNullOrEmpty(fileTitle) ? file.FileName : fileTitle);
                         cmd.Parameters.AddWithValue("@Path", file.FileName);
                         cmd.Parameters.AddWithValue("@Extension", extension);
                         cmd.Parameters.AddWithValue("@Size", fileSize);

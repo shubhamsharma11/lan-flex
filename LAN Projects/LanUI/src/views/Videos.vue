@@ -74,7 +74,7 @@
             this.videoList = response.data
 
             this.videoList.forEach(el => {
-              el.FilePath = variables.FILE_URL + '/' + el.Name
+              el.FilePath = variables.FILE_URL + '/' + el.FilePath
             })
           })
       },

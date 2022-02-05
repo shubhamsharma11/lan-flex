@@ -17,196 +17,17 @@
             Enter the details about the file being uploaded
           </div>
         </template>
-
         <v-form>
           <v-container class="py-0">
             <v-row>
-              <!-- File Title -->
               <v-col
                 cols="12"
-                md="6"
               >
-                <v-text-field
-                  v-model="fileTitle"
-                  label="File Title"
-                  outlined
-                  dense
-                />
-              </v-col>
-
-              <!-- File Type -->
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <!-- This should be drop down (Video / Audio / Image) -->
-                <!-- <v-text-field
-                  label="File Type"
-                /> -->
-                <v-select
-                  v-model="selectedFileType"
-                  label="File Type"
-                  outlined
-                  dense
-                  :items="fileTypes"
-                  item-text="fileType"
-                  item-value="fileTypeCode"
-                  return-object
-                />
-              </v-col>
-
-              <!-- Video Genre -->
-              <v-col
-                v-if="selectedFileType.fileType == 'Video'"
-                cols="12"
-                md="6"
-              >
-                <!-- This should be a dropdown -->
-                <!-- <v-text-field
-                  label="Genere"
-                  outlined
-                  dense
-                /> -->
-                <v-select
-                  v-model="selectedVideoGenre"
-                  label="Video Genre"
-                  outlined
-                  dense
-                  :items="videoGenre"
-                />
-              </v-col>
-
-              <!-- Video Type -->
-              <v-col
-                v-if="selectedFileType.fileType == 'Video'"
-                cols="12"
-                md="6"
-              >
-                <!-- This also should be radio buttons (movie/tv series/music video)
-                This should be enable only if user selects Video in above radio button -->
-                <!-- <v-text-field
-                  label="Video Type"
-                  outlined
-                  dense
-                /> -->
-                <v-select
-                  v-model="selectedVideoType"
-                  label="Video Type"
-                  outlined
-                  dense
-                  :items="videoTypes"
-                />
-              </v-col>
-
-              <!-- Music Genre -->
-              <v-col
-                v-if="selectedFileType.fileType == 'Music'"
-                cols="12"
-                md="6"
-              >
-                <!-- This should be a dropdown -->
-                <!-- <v-text-field
-                  label="Genere"
-                  outlined
-                  dense
-                /> -->
-                <v-select
-                  v-model="selectedMusicGenre"
-                  label="Music Genre"
-                  outlined
-                  dense
-                  :items="musicGenre"
-                />
-              </v-col>
-
-              <!-- File Language -->
-              <v-col
-                v-if="selectedFileType.fileType == 'Music' || selectedFileType.fileType == 'Video'"
-                cols="12"
-                md="6"
-              >
-                <!-- This also should be select box (English Songs/Hindi Songs/Bhajans)
-                This should be enable only if user selects Video in previous select box -->
-                <!-- <v-text-field
-                  label="Audio Type"
-                  outlined
-                  dense
-                /> -->
-                <v-select
-                  v-model="selectedFileLanguage"
-                  label="File Language"
-                  outlined
-                  dense
-                  :items="fileLanguage"
-                />
-              </v-col>
-
-              <!-- <v-col
-                cols="12"
-                md="6"
-              >
-                <v-text-field
-                  label="Last Name"
-                  class="purple-input"
-                />
-              </v-col>
-
-              <v-col cols="12">
-                <v-text-field
-                  label="Adress"
-                  class="purple-input"
-                />
-              </v-col>
-
-              <v-col
-                cols="12"
-                md="4"
-              >
-                <v-text-field
-                  label="City"
-                  class="purple-input"
-                />
-              </v-col>
-
-              <v-col
-                cols="12"
-                md="4"
-              >
-                <v-text-field
-                  label="Country"
-                  class="purple-input"
-                />
-              </v-col>
-
-              <v-col
-                cols="12"
-                md="4"
-              >
-                <v-text-field
-                  class="purple-input"
-                  label="Postal Code"
-                  type="number"
-                />
-              </v-col> -->
-
-              <!-- Description -->
-              <v-col cols="12">
-                <v-textarea
-                  label="Description"
-                  placeholder="Enter the description for the file."
-                  rows="1"
-                  dense
-                  outlined
-                />
-              </v-col>
-
-              <!--Dropbox-->
-              <!-- Make the dropbox similar to othe fields -->
-              <v-col>
                 <div class="dropbox">
                   <input
                     type="file"
                     name="file"
+                    ref="file"
                     class="input-file"
                     :disabled="isUploading"
                     :accept="selectedFileType.fileTypeCode"
@@ -254,11 +75,27 @@
 
               <v-col
                 cols="12"
+              >
+                <v-text-field
+                  ref="fileTitle"
+                  v-model="fileTitle"
+                  label="File Title"
+                  outlined
+                  required
+                  prepend-inner-icon="mdi-file-send"
+                  :rules="rules"
+                  :error-messages="errorMessages"
+                />
+              </v-col>
+              <v-divider cols="12"></v-divider>
+              <v-col
+                cols="12"
                 class="text-right"
               >
                 <v-btn
                   color="primary"
                   outlined
+                  :disabled="!this.fileTitle"
                   @click="onUploadFile"
                 >
                   Upload File
@@ -301,6 +138,11 @@
         },
       ],
       selectedFileType: null,
+      rules: [
+        value => value.length <= 30 || 'Max 25 characters',
+        value => !!value || 'Required.',
+        value => (value && value.length >= 10) || 'Min 10 characters',
+      ],
 
       // Update Video Genre
       videoGenre: [
@@ -380,6 +222,7 @@
         if (event.target.files.length !== 0) {
           this.currentStatus = STATUS_FILE_SELECTED
           this.selectedFile = event.target.files[0]
+          this.fileTitle = this.selectedFile.name
         }
       },
 
@@ -389,11 +232,12 @@
         // If the no file is selected dont upload the file
         // TODO: Validate all the checks in a function and then only enable the upload button else disable it
 
-        if (!this.selectedFile) return
+        if (!this.selectedFile || !this.fileTitle || !(this.$refs['fileTitle'].validate(true))) return
 
         // append the files to FormData
 
         formData.append('file', this.selectedFile)
+        formData.append('name', this.fileTitle)
 
         var self = this
         const url = `${variables.BASE_URL}/FileUpload`
@@ -416,42 +260,6 @@
             this.status.message = res.message
             this.status.state = res.status
             this.reset()
-
-            // this.status.display = true
-            // this.status.isSuccess = res.status
-            // this.status.successMessage = res.message
-            // console.log(res)
-            // , {
-            //           onUploadProgress: uploadEvent => {
-            //             console.log('Uploading Progress: ' + Math.round(uploadEvent.loaded / uploadEvent.total * 100) + '%')
-            //           },
-            //         }
-
-            // {
-            //   headers: {
-            //     'Content-Type': 'multipart/form-data',
-            //   },
-            // },
-            // this.onUploadProgress,
-
-            // lastModified: 1635671934810
-            // lastModifiedDate: Sun Oct 31 2021 14:48:54 GMT+0530 (India Standard Time) {}
-            // name: "5-cm.mp4"
-            // size: 37922050
-            // type: "video/mp4"
-
-            // , {
-            //     headers: {
-            //       'Content-Type': 'multipart/form-data'
-            //     }
-            //   }
-
-            // this.fileTitle
-            // this.selectedFileType
-            // this.selectedVideoGenre
-            // this.selectedVideoType
-            // this.selectedMusicGenre
-            // this.selectedFileLanguage
           })
           .catch(error => {
             this.currentStatus = STATUS_FAILED
@@ -467,6 +275,9 @@
         // reset form to initial state
         this.currentStatus = STATUS_INITIAL
         this.selectedFileType = this.fileTypes[0]
+        this.fileTitle = ''
+        this.$refs['fileTitle'].reset()
+        this.selectedFile = null
       },
     },
   }
