@@ -24,8 +24,9 @@
       <v-col
         v-for="video in videoList"
         :key="video.FileId"
-        class="col-xs-6"
-        sm="2"
+        class="col-xs-12"
+        sm="4"
+        md="3"
       >
         <v-card @click="videoSrc=video">
           <v-card-title>
@@ -35,13 +36,12 @@
             >
           </v-card-title>
           <v-card-text>
-            <h4 class="card-title font-weight-light mt-2 ml-2">
+            <h4
+              class="card-title font-weight-light mt-2 ml-2"
+              style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+            >
               {{ video.Name }}
             </h4>
-
-            <p class="d-inline-flex font-weight-light ml-2 mt-1">
-              {{ video.Details }}
-            </p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -79,6 +79,7 @@
 
             this.videoList.forEach(el => {
               el.FilePath = variables.FILE_URL + '/' + el.FilePath
+              el.ThumbPath = variables.FILE_URL + '/video_thumb.jpg'
             })
           })
       },
