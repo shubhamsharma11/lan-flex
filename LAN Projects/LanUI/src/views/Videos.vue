@@ -32,7 +32,7 @@
           <v-card-title>
             <img
               :src="video.ThumbPath"
-              style="border-radius: 5px; width: 100%"
+              style="border-radius: 5px; width: 100%; height: 250px;"
             >
           </v-card-title>
           <v-card-text>
@@ -78,8 +78,9 @@
             this.videoList = response.data
 
             this.videoList.forEach(el => {
+              const random = Math.floor((Math.random() * 13) + 1)
               el.FilePath = variables.FILE_URL + '/' + el.FilePath
-              el.ThumbPath = variables.FILE_URL + '/video_thumb.jpg'
+              el.ThumbPath = variables.FILE_URL + '/thumbs/' + random + '.jpg'
             })
           })
       },
