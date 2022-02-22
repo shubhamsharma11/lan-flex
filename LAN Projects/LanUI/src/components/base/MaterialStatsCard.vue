@@ -19,6 +19,7 @@
     </template>
 
     <v-col
+      v-if="subText || subIcon"
       cols="12"
       class="px-0"
     >
@@ -26,6 +27,7 @@
     </v-col>
 
     <v-icon
+      v-if="subIcon"
       :color="subIconColor"
       size="16"
       class="ml-2 mr-1"
@@ -34,10 +36,34 @@
     </v-icon>
 
     <span
+      v-if="subText"
       :class="subTextColor"
       class="caption grey--text font-weight-light"
       v-text="subText"
     />
+
+    <v-spacer />
+
+    <v-btn
+      v-if="buttonText"
+      text
+      x-small
+      rounded
+      outlined
+    >
+      {{ buttonText }}
+    </v-btn>
+
+    <v-btn
+      v-if="buttonIcon"
+      icon
+      x-small
+      :to="buttonAction"
+    >
+      <v-icon dark>
+        {{ buttonIcon }}
+      </v-icon>
+    </v-btn>
   </base-material-card>
 </template>
 
@@ -80,6 +106,18 @@
         default: undefined,
       },
       smallValue: {
+        type: String,
+        default: undefined,
+      },
+      buttonText: {
+        type: String,
+        default: undefined,
+      },
+      buttonIcon: {
+        type: String,
+        default: undefined,
+      },
+      buttonAction: {
         type: String,
         default: undefined,
       },

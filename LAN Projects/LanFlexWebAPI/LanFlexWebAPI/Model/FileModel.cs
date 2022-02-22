@@ -1,6 +1,6 @@
 ﻿namespace LanFlexWebAPI.Model
 {
-    public class VideoModel
+    public class FileModel
     {
         public int FileId;
         public string Name;
@@ -8,6 +8,5 @@
         public string ThumbPath;
         public string Extension;
         public string FilePath;
-        public string Type;
     }
 }

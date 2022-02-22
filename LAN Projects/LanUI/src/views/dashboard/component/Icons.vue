@@ -4,11 +4,6 @@
     fluid
     tag="section"
   >
-    <base-v-component
-      heading="Icons"
-      link="components/icons"
-    />
-
     <v-row>
       <v-col cols="12">
         <base-material-card color="green">
@@ -46,6 +41,7 @@
                   <v-icon
                     v-bind="attrs"
                     v-on="on"
+                    x-large
                   >
                     {{ icon }}
                   </v-icon>

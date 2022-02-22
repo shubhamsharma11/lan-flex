@@ -1,8 +1,9 @@
 <template>
   <div>
     <video
-      style="width: 100%;"
-      controls
+      :width="width"
+      :height="height"
+      :controls="controls"
       :autoplay="autoPlay"
       :src="source"
       :title="title"
@@ -45,6 +46,18 @@
       cover: {
         type: String,
         default: '',
+      },
+      controls: {
+        type: Boolean,
+        default: true,
+      },
+      width: {
+        type: String,
+        default: '100%',
+      },
+      height: {
+        type: String,
+        default: '100%',
       },
     },
   }
