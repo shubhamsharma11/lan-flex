@@ -25,6 +25,41 @@
               <v-row>
                 <v-col
                   cols="12"
+                  sm="6"
+                >
+                  <v-select
+                    ref="fileType"
+                    v-model="selectedFileType"
+                    :items="fileTypes"
+                    item-text="fileType"
+                    item-value="fileTypeCode"
+                    label="File Type"
+                    required
+                    outlined
+                    return-object
+                    prepend-inner-icon="mdi-file-compare"
+                    :error-messages="errorMessages"
+                  />
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
+                  <v-text-field
+                    ref="fileTitle"
+                    v-model="fileTitle"
+                    label="File Title"
+                    outlined
+                    required
+                    prepend-inner-icon="mdi-file-send"
+                    :rules="rules"
+                    :error-messages="errorMessages"
+                  />
+                </v-col>
+
+                <v-col
+                  cols="12"
                 >
                   <div class="dropbox">
                     <input
@@ -76,21 +111,8 @@
                   </div>
                 </v-col>
 
-                <v-col
-                  cols="12"
-                >
-                  <v-text-field
-                    ref="fileTitle"
-                    v-model="fileTitle"
-                    label="File Title"
-                    outlined
-                    required
-                    prepend-inner-icon="mdi-file-send"
-                    :rules="rules"
-                    :error-messages="errorMessages"
-                  />
-                </v-col>
-                <v-divider cols="12" />
+                <v-divider />
+
                 <v-col
                   cols="12"
                   class="text-right"
@@ -133,7 +155,7 @@
           fileTypeCode: 'video/*',
         },
         {
-          fileType: 'Music',
+          fileType: 'Audio',
           fileTypeCode: 'audio/*',
         },
         {
@@ -143,47 +165,11 @@
       ],
       selectedFileType: null,
       rules: [
-        value => value.length <= 30 || 'Max 25 characters',
+        value => value.length <= 30 || 'Max 30 characters',
         value => !!value || 'Required.',
         value => (value && value.length >= 10) || 'Min 10 characters',
+        value => /^[\w\- ]+$/.test(value) || 'No special characters (! @ # $ % ^ & * ( ) { } [ ] . , / \\ ` ~) are allowed',
       ],
-
-      // Update Video Genre
-      videoGenre: [
-        'Electronic music',
-        'Funk',
-        'Hip hop music',
-        'Jazz',
-        'Pop music',
-        'Rock music',
-        'Metal music',
-        'Soul music and R&B',
-        'Religious music',
-        'Traditional and folk music',
-      ],
-      selectedVideoGenre: null,
-
-      musicGenre: [
-        'Electronic music',
-        'Funk',
-        'Hip hop music',
-        'Jazz',
-        'Pop music',
-        'Rock music',
-        'Metal music',
-        'Soul music and R&B',
-        'Religious music',
-        'Traditional and folk music',
-      ],
-      selectedMusicGenre: null,
-
-      fileLanguage: [
-        'Hindi',
-        'English',
-        'Tamil',
-        'Telugu',
-      ],
-      selectedFileLanguage: null,
 
       videoTypes: [
         'Movie',
@@ -242,6 +228,7 @@
 
         formData.append('file', this.selectedFile)
         formData.append('name', this.fileTitle)
+        formData.append('type', this.selectedFileType.fileType)
 
         var self = this
         const url = `${variables.BASE_URL}/FileUpload`

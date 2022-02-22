@@ -92,7 +92,7 @@
 
     methods: {
       getVideos () {
-        axios.get(`${variables.BASE_URL}/GetVideos`)
+        axios.get(`${variables.BASE_URL}/GetAudios`)
           .then(response => {
             this.videoList = response.data
             console.log(this.videoList)

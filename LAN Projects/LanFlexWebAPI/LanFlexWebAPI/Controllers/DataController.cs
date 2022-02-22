@@ -105,7 +105,7 @@ namespace LanFlexWebAPI.Controllers
                     mySqlConnection.Open();
 
                     MySqlCommand cmd = mySqlConnection.CreateCommand();
-                    cmd.CommandText = Constants.VideoSelectStmt;
+                    cmd.CommandText = Constants.AudioSelectStmt;
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -189,6 +189,8 @@ namespace LanFlexWebAPI.Controllers
         {
             IFormFile file = formData.Files[0];
             string fileTitle = formData["name"];
+            string fileType = formData["type"];
+
             try
             {
                 if (file != null)
@@ -202,8 +204,7 @@ namespace LanFlexWebAPI.Controllers
 
                     var fileName = file.FileName;
                     var filePath = _webHost.ContentRootPath + Constants.UploadFolderName + fileName;
-                    var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);
-                    var fileSize = 0L;
+                    var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);                    
 
                     using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))
                     {
@@ -216,7 +217,7 @@ namespace LanFlexWebAPI.Controllers
                         cmd.Parameters.AddWithValue("@Name", string.IsNullOrEmpty(fileTitle) ? file.FileName : fileTitle);
                         cmd.Parameters.AddWithValue("@Path", file.FileName);
                         cmd.Parameters.AddWithValue("@Extension", extension);
-                        cmd.Parameters.AddWithValue("@Size", fileSize);
+                        cmd.Parameters.AddWithValue("@Type", fileType);
                         cmd.Parameters.AddWithValue("@LastUpdatedAt", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
                         cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
 
@@ -227,7 +228,6 @@ namespace LanFlexWebAPI.Controllers
                     using (var stream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(stream);
-                        fileSize = stream.Length;
                     }
                 }
                 return Ok(new { status = true, message = "File Uploaded Successfully" });
