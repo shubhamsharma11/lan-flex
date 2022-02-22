@@ -89,11 +89,11 @@
     },
 
     mounted () {
-      this.getVideos()
+      this.getStats()
     },
 
     methods: {
-      getVideos () {
+      getStats () {
         axios.get(`${variables.BASE_URL}/GetHomeStats`)
           .then(response => {
             this.videoCount = response.data.VideoCount
