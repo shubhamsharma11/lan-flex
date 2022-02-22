@@ -1,112 +1,116 @@
 <template>
-  <v-row
-    align="center"
-    justify="center"
+  <v-container
+    fluid
   >
-    <v-col
-      cols="12"
-      sm="8"
+    <v-row
+      align="center"
+      justify="center"
     >
-      <base-material-card color="primary">
-        <template v-slot:heading>
-          <div class="display-2 font-weight-light">
-            Upload File
-          </div>
+      <v-col
+        cols="12"
+        sm="8"
+      >
+        <base-material-card color="primary">
+          <template v-slot:heading>
+            <div class="display-2 font-weight-light">
+              Upload File
+            </div>
 
-          <div class="subtitle-1 font-weight-light">
-            Enter the details about the file being uploaded
-          </div>
-        </template>
-        <v-form>
-          <v-container class="py-0">
-            <v-row>
-              <v-col
-                cols="12"
-              >
-                <div class="dropbox">
-                  <input
-                    ref="file"
-                    type="file"
-                    name="file"
-                    class="input-file"
-                    :disabled="isUploading"
-                    :accept="selectedFileType.fileTypeCode"
-                    @change="onSelectFile"
-                  >
-                  <v-row
-                    v-if="isUploading"
-                    justify="center"
-                  >
-                    <v-col cols="8">
-                      <v-progress-linear
-                        color="primary"
-                        rounded
-                        :value="uploadedPercentage"
-                      />
-                    </v-col>
-                  </v-row>
-
-                  <v-row
-                    justify="center"
-                  >
-                    <h6
-                      v-if="isUploading"
-                      class="display-1 mb-1 grey--text"
-                    >
-                      Uploading {{ selectedFile.name }} file...
-                    </h6>
-
-                    <h6
-                      v-if="isFileSelected"
-                      class="display-1 mb-1 grey--text"
-                    >
-                      Selected File: {{ selectedFile.name }}
-                    </h6>
-
-                    <h6
-                      v-if="isInitial"
-                      class="display-1 mb-1 grey--text"
-                    >
-                      Drag your file here to select<br> or click to browse
-                    </h6>
-                  </v-row>
-                </div>
-              </v-col>
-
-              <v-col
-                cols="12"
-              >
-                <v-text-field
-                  ref="fileTitle"
-                  v-model="fileTitle"
-                  label="File Title"
-                  outlined
-                  required
-                  prepend-inner-icon="mdi-file-send"
-                  :rules="rules"
-                  :error-messages="errorMessages"
-                />
-              </v-col>
-              <v-divider cols="12" />
-              <v-col
-                cols="12"
-                class="text-right"
-              >
-                <v-btn
-                  color="primary"
-                  outlined
-                  :disabled="!fileTitle"
-                  @click="onUploadFile"
+            <div class="subtitle-1 font-weight-light">
+              Enter the details about the file being uploaded
+            </div>
+          </template>
+          <v-form>
+            <v-container class="py-0">
+              <v-row>
+                <v-col
+                  cols="12"
                 >
-                  Upload File
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-form>
-      </base-material-card>
-    </v-col>
-  </v-row>
+                  <div class="dropbox">
+                    <input
+                      ref="file"
+                      type="file"
+                      name="file"
+                      class="input-file"
+                      :disabled="isUploading"
+                      :accept="selectedFileType.fileTypeCode"
+                      @change="onSelectFile"
+                    >
+                    <v-row
+                      v-if="isUploading"
+                      justify="center"
+                    >
+                      <v-col cols="8">
+                        <v-progress-linear
+                          color="primary"
+                          rounded
+                          :value="uploadedPercentage"
+                        />
+                      </v-col>
+                    </v-row>
+
+                    <v-row
+                      justify="center"
+                    >
+                      <h6
+                        v-if="isUploading"
+                        class="display-1 mb-1 grey--text"
+                      >
+                        Uploading {{ selectedFile.name }} file...
+                      </h6>
+
+                      <h6
+                        v-if="isFileSelected"
+                        class="display-1 mb-1 grey--text"
+                      >
+                        Selected File: {{ selectedFile.name }}
+                      </h6>
+
+                      <h6
+                        v-if="isInitial"
+                        class="display-1 mb-1 grey--text"
+                      >
+                        Drag your file here to select<br> or click to browse
+                      </h6>
+                    </v-row>
+                  </div>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                >
+                  <v-text-field
+                    ref="fileTitle"
+                    v-model="fileTitle"
+                    label="File Title"
+                    outlined
+                    required
+                    prepend-inner-icon="mdi-file-send"
+                    :rules="rules"
+                    :error-messages="errorMessages"
+                  />
+                </v-col>
+                <v-divider cols="12" />
+                <v-col
+                  cols="12"
+                  class="text-right"
+                >
+                  <v-btn
+                    color="primary"
+                    outlined
+                    :disabled="!fileTitle"
+                    @click="onUploadFile"
+                  >
+                    Upload File
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-form>
+        </base-material-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

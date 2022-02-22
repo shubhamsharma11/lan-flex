@@ -20,7 +20,10 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row
+      v-if="videoList && videoList.length !== 0"
+      style="margin-top:10px"
+    >
       <v-col
         v-for="video in videoList"
         :key="video.FileId"
@@ -28,24 +31,40 @@
         sm="4"
         md="3"
       >
-        <v-card @click="videoSrc=video">
-          <v-card-title>
-            <img
-              :src="video.ThumbPath"
-              style="border-radius: 5px; width: 100%; height: 250px;"
-            >
-          </v-card-title>
+        <base-material-card
+          icon="mdi-video"
+          color="primary"
+        >
           <v-card-text>
-            <h4
-              class="card-title font-weight-light mt-2 ml-2"
+            <h3
+              class="card-title font-weight-light"
               style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
             >
               {{ video.Name }}
-            </h4>
+            </h3>
           </v-card-text>
-        </v-card>
+
+          <template v-slot:actions>
+            <v-spacer />
+            <v-btn
+              text
+              x-small
+              class="primary"
+              @click="videoSrc=video"
+            >
+              Play Video
+            </v-btn>
+          </template>
+        </base-material-card>
       </v-col>
     </v-row>
+
+    <base-v-component
+      v-else
+      heading="There is nothing to show here"
+      description="Please upload the a file from "
+      link="upload"
+    />
   </v-container>
 </template>
 
@@ -76,11 +95,14 @@
         axios.get(`${variables.BASE_URL}/GetVideos`)
           .then(response => {
             this.videoList = response.data
-
+            let count = 1
             this.videoList.forEach(el => {
-              const random = Math.floor((Math.random() * 13) + 1)
+              if (count === variables.THUMB_COUNT) {
+                count = 1
+              }
               el.FilePath = variables.FILE_URL + '/' + el.FilePath
-              el.ThumbPath = variables.FILE_URL + '/thumbs/' + random + '.jpg'
+              el.ThumbPath = variables.FILE_URL + '/thumbs/' + count + '.jpg'
+              count++
             })
           })
       },
@@ -97,5 +119,11 @@
   .video-player
   {
     padding: 0px;
+  }
+  .v-card--material-stats
+  {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
   }
 </style>
