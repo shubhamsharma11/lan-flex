@@ -30,6 +30,9 @@
 [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard)
 [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 
+dropdown to Select file type and store the file type in database
+save data in different folder based on the file type
+show data based on the file type
 
 
 <!-- PROJECT LOGO -->
@@ -283,13 +286,13 @@ Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform
 - [ ] Use the signalR server hub to notify everyone if there is a change in the server
 - [ ] Fix the UI issues
     - [x] Video is not aligned going out of the screen
-    - [ ] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
-    - [ ] Video name box should be of same size and look consistent
+    - [x] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
+    - [x] Video name box should be of same size and look consistent
 - [ ] Themes and background should be saved in the database for the user
 - [ ] User profile page should have a preferences check boxes where user will enter the file preferences like video audio or images or movies tv series or music videos. Preferences button should be in the settings
 - [ ] And in the settings images should be selected only if the check box Is selected.
-- [ ] Show default thumbnail for the video/audio
-- [ ] Create thumbnails for video in .net
+- [x] Show default thumbnail for the video/audio
+- [x] Create thumbnails for video in .net - Did not create but showing default image / thumb
 - [ ] While uplaoding user has to provide some basic info for the file like file title, description, genre, type (movie/tv series/music video) and file type like (video/audio/image)
 - [ ] Other than the above details there will be some more details which will not be shown to the user like date time of the upload, user name who uploaded the file, etc.
 - [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
