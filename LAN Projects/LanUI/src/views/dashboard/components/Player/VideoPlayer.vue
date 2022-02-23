@@ -19,10 +19,6 @@
   export default {
     name: 'VideoPlayer',
     props: {
-      type: {
-        type: String,
-        default: '',
-      },
       source: {
         type: String,
         default: '',
