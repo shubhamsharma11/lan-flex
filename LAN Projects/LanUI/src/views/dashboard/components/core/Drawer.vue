@@ -25,8 +25,7 @@
           v-if="item.children"
           :key="`group-${i}`"
           :item="item"
-        >
-        </base-item-group>
+        />
 
         <base-item
           v-else
