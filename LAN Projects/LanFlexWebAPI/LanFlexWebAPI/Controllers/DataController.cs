@@ -137,6 +137,50 @@ namespace LanFlexWebAPI.Controllers
         /// To get list of all the videos
         /// </summary>
         /// <returns></returns>
+        [HttpGet("GetImages")]
+        public IActionResult GetImages()
+        {
+            List<FileModel> videoList = new List<FileModel>();
+
+            try
+            {
+                using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))
+                {
+                    mySqlConnection.Open();
+
+                    MySqlCommand cmd = mySqlConnection.CreateCommand();
+                    cmd.CommandText = Constants.ImagesSelectStmt;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        videoList.Add(new FileModel()
+                        {
+                            Name = reader.GetString("Name"),
+                            Extension = reader.GetString("Extension"),
+                            FilePath = reader.GetString("Path"),
+                            FileId = reader.GetInt32("FileId"),
+                            ThumbPath = reader.IsDBNull(7) ? null : reader.GetString("ThumbPath"),
+                            Details = reader.IsDBNull(8) ? null : reader.GetString("Details")
+                        });
+                    }
+                    reader.Close();
+                }
+
+                return Ok(JsonConvert.SerializeObject(videoList));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
+        /// GET video/GetVideos
+        /// To get list of all the videos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetVideos")]
         public IActionResult GetVideos()
         {

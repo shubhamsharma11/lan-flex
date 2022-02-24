@@ -72,14 +72,19 @@
           to: '/audios',
         },
         {
+          icon: 'mdi-image',
+          title: 'Images',
+          to: '/images',
+        },
+        {
+          icon: 'mdi-arrow-up-thick',
+          title: 'Upload',
+          to: '/upload',
+        },
+        {
           icon: 'mdi-account',
           title: 'user',
           to: '/pages/user',
-        },
-        {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/tables/regular-tables',
         },
         {
           title: 'typography',
@@ -100,11 +105,6 @@
           title: 'notifications',
           icon: 'mdi-bell',
           to: '/components/notifications',
-        },
-        {
-          icon: 'mdi-arrow-up-thick',
-          title: 'Upload',
-          to: '/upload',
         },
       ],
     }),

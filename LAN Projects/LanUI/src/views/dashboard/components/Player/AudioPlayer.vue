@@ -7,6 +7,9 @@
       :loop="loop"
       style="width: 100%; height: 30px;"
     />
+    <div class="display-2 font-weight-light mt-2">
+      {{ title }}
+    </div>
   </div>
 </template>
 
@@ -30,6 +33,10 @@
       controls: {
         type: Boolean,
         default: true,
+      },
+      title: {
+        type: String,
+        default: '',
       },
     },
   }

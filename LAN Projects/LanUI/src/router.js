@@ -11,21 +11,35 @@ export default new Router({
           path: '/',
           component: () => import('@/views/dashboard/Dashboard'),
         },
+        // Videos
+        {
+          name: 'Videos',
+          path: '/videos',
+          component: () => import('@/views/Videos'),
+        },
+        // Audios
+        {
+          name: 'Audios',
+          path: '/audios',
+          component: () => import('@/views/Audios'),
+        },
+        // Images
+        {
+          name: 'Images',
+          path: '/images',
+          component: () => import('@/views/Images'),
+        },
+        // Upload
+        {
+          name: 'Upload',
+          path: '/upload',
+          component: () => import('@/views/Upload'),
+        },
         // Pages
         {
           name: 'User Profile',
           path: '/pages/user',
           component: () => import('@/views/dashboard/pages/UserProfile'),
-        },
-        {
-          name: 'Audio',
-          path: '/audios',
-          component: () => import('@/views/Audios'),
-        },
-        {
-          name: 'Video',
-          path: '/videos',
-          component: () => import('@/views/Videos'),
         },
         {
           name: 'Notifications',
@@ -42,22 +56,11 @@ export default new Router({
           path: '/components/typography',
           component: () => import('@/views/dashboard/component/Typography'),
         },
-        // Tables
-        {
-          name: 'Regular Tables',
-          path: '/tables/regular-tables',
-          component: () => import('@/views/dashboard/tables/RegularTables'),
-        },
         // Maps
         {
           name: 'Google Maps',
           path: '/maps/google-maps',
           component: () => import('@/views/dashboard/maps/GoogleMaps'),
-        },
-        {
-          name: 'Upload',
-          path: '/upload',
-          component: () => import('@/views/Upload'),
         },
   ],
 })

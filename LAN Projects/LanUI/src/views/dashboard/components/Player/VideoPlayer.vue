@@ -11,6 +11,9 @@
       :loop="loop"
       :playsinline="playsinline"
     />
+    <div class="display-2 font-weight-light mt-2">
+      {{ title }}
+    </div>
   </div>
 </template>
 

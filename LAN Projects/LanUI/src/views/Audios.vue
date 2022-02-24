@@ -12,6 +12,7 @@
             <audio-player
               :source="audioSrc.FilePath"
               :controls="controls"
+              :title="audioSrc.Name"
             />
           </v-card-text>
         </v-card>
