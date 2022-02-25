@@ -5,52 +5,55 @@
     <v-row justify="center">
       <v-dialog
         v-model="dialog"
-        width="40%"
+        width="50%"
+        persistent
       >
-        <v-img
-          :src="imageSrc.FilePath"
-          aspect-ratio="1"
-          class="grey lighten-2"
-        >
-          <template v-slot:placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
-            </v-row>
-          </template>
-        </v-img>
-
-        <!-- <v-carousel
-          v-model="imageSrc"
-          hide-delimiters
-          cycle
-          show-arrows-on-hover
-        >
-          <v-carousel-item
-            v-for="image in imageList"
-            :key="image"
-            :src="image.FilePath"
+        <v-card>
+          <v-toolbar
+            flat
+            dark
+            color="primary"
           >
-            <template v-slot:placeholder>
-              <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
+            <v-toolbar-title>{{ imageList[selectedImage].Name }}</v-toolbar-title>
+            <v-spacer />
+            <v-btn
+              icon
+              dark
+              @click="dialog = false"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-window
+            v-model="selectedImage"
+            show-arrows
+          >
+            <v-window-item
+              v-for="(img, i) in imageList"
+              :key="i"
+            >
+              <v-img
+                :src="img.FilePath"
+                class="grey lighten-2"
+                contain
+                height="400px"
               >
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-carousel-item>
-        </v-carousel> -->
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="grey lighten-5"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-window-item>
+          </v-window>
+        </v-card>
       </v-dialog>
     </v-row>
 
@@ -59,14 +62,14 @@
       style="margin-top:10px"
     >
       <v-col
-        v-for="image in imageList"
+        v-for="(image, i) in imageList"
         :key="image.FileId"
         class="d-flex child-flex"
         sm="3"
         md="2"
       >
         <v-card
-          @click="dialog = true; imageSrc = image"
+          @click="dialog = true; selectedImage = i"
         >
           <v-img
             :src="image.FilePath"
@@ -113,6 +116,7 @@
       imageList: [],
       imageSrc: {},
       dialog: false,
+      selectedImage: 0,
     }),
 
     mounted () {
