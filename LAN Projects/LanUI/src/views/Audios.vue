@@ -94,7 +94,6 @@
         axios.get(`${variables.BASE_URL}/GetAudios`)
           .then(response => {
             this.audioList = response.data
-            console.log(this.audioList)
             let count = 1
             this.audioList.forEach(el => {
               if (count === variables.THUMB_COUNT) {
