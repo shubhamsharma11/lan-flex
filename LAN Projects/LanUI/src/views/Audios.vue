@@ -2,18 +2,17 @@
   <v-container
     fluid
   >
-    <v-row v-if="videoSrc.FilePath">
+    <v-row v-if="audioSrc.FilePath">
       <v-col
         cols="12"
-        class="video-player"
+        class="audio-player"
       >
         <v-card>
           <v-card-text>
-            <video-player
-              :source="videoSrc.FilePath"
-              :type="videoSrc.Type"
-              :auto-play="true"
-              :title="videoSrc.Name"
+            <audio-player
+              :source="audioSrc.FilePath"
+              :controls="controls"
+              :title="audioSrc.Name"
             />
           </v-card-text>
         </v-card>
@@ -21,12 +20,12 @@
     </v-row>
 
     <v-row
-      v-if="videoList && videoList.length !== 0"
+      v-if="audioList && audioList.length !== 0"
       style="margin-top:10px"
     >
       <v-col
-        v-for="video in videoList"
-        :key="video.FileId"
+        v-for="audio in audioList"
+        :key="audio.FileId"
         class="col-xs-12"
         sm="4"
         md="3"
@@ -40,7 +39,7 @@
               class="card-title font-weight-light"
               style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
             >
-              {{ video.Name }}
+              {{ audio.Name }}
             </h3>
           </v-card-text>
 
@@ -50,9 +49,9 @@
               text
               x-small
               class="primary"
-              @click="videoSrc=video"
+              @click="audioSrc=audio"
             >
-              Play Video
+              Play Audio
             </v-btn>
           </template>
         </base-material-card>
@@ -69,7 +68,7 @@
 </template>
 
 <script>
-  import VideoPlayer from './dashboard/components/Player/VideoPlayer.vue'
+  import AudioPlayer from './dashboard/components/Player/AudioPlayer.vue'
   import * as axios from 'axios'
   import { variables } from '../constants.js'
 
@@ -77,27 +76,26 @@
     name: 'Audios',
 
     components: {
-      VideoPlayer,
+      AudioPlayer,
     },
 
     data: () => ({
-      videoList: [],
-      videoSrc: {},
+      audioList: [],
+      audioSrc: {},
       dialog: false,
     }),
 
     mounted () {
-      this.getVideos()
+      this.getAudios()
     },
 
     methods: {
-      getVideos () {
-        axios.get(`${variables.BASE_URL}/GetVideos`)
+      getAudios () {
+        axios.get(`${variables.BASE_URL}/GetAudios`)
           .then(response => {
-            this.videoList = response.data
-            console.log(this.videoList)
+            this.audioList = response.data
             let count = 1
-            this.videoList.forEach(el => {
+            this.audioList.forEach(el => {
               if (count === variables.THUMB_COUNT) {
                 count = 1
               }
@@ -117,7 +115,7 @@
     padding: 2px;
     margin: 0px;
   }
-  .video-player
+  .audio-player
   {
     padding: 0px;
   }

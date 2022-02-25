@@ -16,7 +16,9 @@
           icon
           class="pl-6 pr-6"
         >
-          <v-icon size="24px">{{ icon }}</v-icon>
+          <v-icon size="24px">
+            {{ icon }}
+          </v-icon>
         </v-btn>
       </v-col>
       <v-btn

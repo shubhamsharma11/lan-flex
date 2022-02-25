@@ -64,8 +64,6 @@
           :value="total"
           sub-icon="mdi-apps"
           sub-text="Number of total files available in the system"
-          button-icon="mdi-chevron-right"
-          button-action="videos"
         />
       </v-col>
     </v-row>

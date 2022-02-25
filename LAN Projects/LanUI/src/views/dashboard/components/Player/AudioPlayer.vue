@@ -1,13 +1,16 @@
 <template>
-  <audio
-    controls
-    :autoplay="autoPlay"
-  >
-    <source
-      :src="srcMp3"
-      type="audio/mpeg"
-    >
-  </audio>
+  <div>
+    <audio
+      :controls="controls"
+      :autoplay="autoPlay"
+      :src="source"
+      :loop="loop"
+      style="width: 100%; height: 30px;"
+    />
+    <div class="display-2 font-weight-light mt-2">
+      {{ title }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,14 +18,25 @@
   export default {
     name: 'AudioPlayer',
     props: {
-
-      srcMp3: {
+      source: {
         type: String,
-        default: '/audios/test.mp3',
+        default: '',
       },
       autoPlay: {
         type: Boolean,
+        default: true,
+      },
+      loop: {
+        type: Boolean,
         default: false,
+      },
+      controls: {
+        type: Boolean,
+        default: true,
+      },
+      title: {
+        type: String,
+        default: '',
       },
     },
   }

@@ -11,7 +11,6 @@
           <v-card-text>
             <video-player
               :source="videoSrc.FilePath"
-              :type="videoSrc.Type"
               :auto-play="true"
               :title="videoSrc.Name"
             />
