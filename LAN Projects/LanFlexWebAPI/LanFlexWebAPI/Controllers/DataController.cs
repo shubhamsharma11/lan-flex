@@ -247,7 +247,7 @@ namespace LanFlexWebAPI.Controllers
                     */
 
                     var fileName = file.FileName;
-                    var filePath = _webHost.ContentRootPath + Constants.UploadFolderName + fileName;
+                    var filePath = _webHost.ContentRootPath + Constants.UploadFolderName + "/" + fileType + "/" + fileName;
                     var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);                    
 
                     using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))

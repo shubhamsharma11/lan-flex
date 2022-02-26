@@ -12,6 +12,6 @@
         public static string ImagesSelectStmt = "SELECT * FROM FilesDetails WHERE Type = 'Image'";
         public static string InsertFileStmt = "INSERT INTO `lanflex`.`filesdetails`(`Name`, `Path`, `Extension`, `Type`, `LastUpdatedAt`, `CreatedAt`)" +
             "VALUES (@Name, @Path, @Extension, @Type, @LastUpdatedAt, @CreatedAt)";
-        public static string UploadFolderName = "/UploadedFiles/";
+        public static string UploadFolderName = "/UploadedFiles";
     }
 }

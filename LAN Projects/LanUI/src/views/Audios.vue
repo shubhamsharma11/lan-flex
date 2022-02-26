@@ -99,7 +99,7 @@
               if (count === variables.THUMB_COUNT) {
                 count = 1
               }
-              el.FilePath = variables.FILE_URL + '/' + el.FilePath
+              el.FilePath = variables.FILE_URL + '/Audio/' + el.FilePath
               el.ThumbPath = variables.FILE_URL + '/thumbs/' + count + '.jpg'
               count++
             })
