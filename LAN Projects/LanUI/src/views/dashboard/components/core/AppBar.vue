@@ -3,8 +3,7 @@
     id="app-bar"
     absolute
     app
-    flat
-    height="75"
+    height="60"
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :src="barImage"
   >
@@ -12,7 +11,7 @@
       <v-img
         v-bind="props"
         :gradient="`to bottom, ${barColor}`"
-      ></v-img>
+      />
     </template>
 
     <v-btn
@@ -39,7 +38,7 @@
     <v-spacer />
 
     <v-text-field
-      :label="Search"
+      label="Search"
       color="primary"
       hide-details
       style="max-width: 165px;"
@@ -91,7 +90,7 @@
             bordered
           >
             <template v-slot:badge>
-              <span>{{notifications.length}}</span>
+              <span>{{ notifications.length }}</span>
             </template>
 
             <v-icon>mdi-bell</v-icon>
@@ -100,17 +99,35 @@
       </template>
 
       <v-list
+        v-if="notifications.length !== 0"
         :tile="false"
         nav
       >
-        <div>
+        <v-list-item
+          v-for="(n, i) in notifications"
+          :key="`item-${i}`"
+        >
+          <v-list-item-title>
+            {{ n.text }}
+          </v-list-item-title>
+        </v-list-item>
+        <!-- <div>
           <app-bar-item
             v-for="(n, i) in notifications"
             :key="`item-${i}`"
           >
-            <v-list-item-title v-text="n" />
+            <v-list-item-title v-text="n.message" />
           </app-bar-item>
-        </div>
+        </div> -->
+      </v-list>
+      <v-list
+        v-else
+      >
+        <v-list-item>
+          <v-list-item-title>
+            No notifications yet
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
 
@@ -126,40 +143,11 @@
 </template>
 
 <script>
-  // Components
-  import { VHover, VListItem } from 'vuetify/lib'
-
   // Utilities
   import { mapState, mapMutations } from 'vuex'
 
   export default {
     name: 'DashboardCoreAppBar',
-
-    components: {
-      AppBarItem: {
-        render (h) {
-          return h(VHover, {
-            scopedSlots: {
-              default: ({ hover }) => {
-                return h(VListItem, {
-                  attrs: this.$attrs,
-                  class: {
-                    'black--text': !hover,
-                    'white--text primary elevation-12': hover,
-                  },
-                  props: {
-                    activeClass: '',
-                    dark: hover,
-                    link: true,
-                    ...this.$attrs,
-                  },
-                }, this.$slots.default)
-              },
-            },
-          })
-        },
-      },
-    },
 
     props: {
       value: {
@@ -168,18 +156,8 @@
       },
     },
 
-    data: () => ({
-      notifications: [
-        'Mike John Responded to your email',
-        'You have 5 new tasks',
-        'You\'re now friends with Andrew',
-        'Another Notification',
-        'Another one',
-      ],
-    }),
-
     computed: {
-      ...mapState(['drawer', 'barColor', 'barImage']),
+      ...mapState(['drawer', 'barColor', 'barImage', 'notifications']),
     },
 
     methods: {
