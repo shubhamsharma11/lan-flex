@@ -281,6 +281,7 @@
       reset () {
         // reset form to initial state
         this.currentStatus = STATUS_INITIAL
+        this.selectedFileType = this.fileTypes[0]
         this.fileTitle = ''
         this.$refs.fileTitle.reset()
         this.selectedFile = null
