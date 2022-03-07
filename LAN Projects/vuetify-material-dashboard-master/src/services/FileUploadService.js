@@ -10,8 +10,6 @@ function upload (formData) {
   //     // add url field
   //     .then(x => x.map(img => Object.assign({},
   //         img, { url: `${BASE_URL}/images/${img.id}` })))
-  console.log(formData)
-  console.log(url)
   return true
 }
 
