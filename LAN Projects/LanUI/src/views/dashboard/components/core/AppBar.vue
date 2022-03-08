@@ -37,28 +37,37 @@
 
     <v-spacer />
 
-    <v-text-field
-      label="Search"
-      color="primary"
-      hide-details
-      style="max-width: 165px;"
+    <v-dialog
+      v-model="dialog"
+      max-width="700"
     >
-      <template
-        v-if="$vuetify.breakpoint.mdAndUp"
-        v-slot:append-outer
+      <v-card
+        class="text-center"
       >
-        <v-btn
-          class="mt-n2"
-          elevation="1"
-          fab
-          small
-        >
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </template>
-    </v-text-field>
+        <v-card-actions>
+          <v-text-field
+            label="Search"
+            color="primary"
+            hide-details
+          >
+            <template
+              v-slot:append
+            >
+              <v-icon>mdi-logout</v-icon>
+            </template>
+          </v-text-field>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
-    <div class="mx-3" />
+    <v-btn
+      class="ml-2"
+      min-width="0"
+      text
+      @click="dialog = true"
+    >
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
 
     <v-btn
       class="ml-2"
@@ -160,12 +169,7 @@
     name: 'DashboardCoreAppBar',
 
     data: () => ({
-      selectedItem: 1,
-      items: [
-        { text: 'Real-Time', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
-      ],
+      dialog: false,
     }),
 
     props: {
