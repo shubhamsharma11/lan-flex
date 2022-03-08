@@ -1,14 +1,14 @@
 <template>
   <div name="snackbars">
-    <v-snackbar
+    <base-material-snackbar
       v-model="show"
-      :color="color"
-      :timeout="timeout"
+      :type="color"
       bottom
       right
+      dismissible
     >
       {{ text }}
-    </v-snackbar>
+    </base-material-snackbar>
   </div>
 </template>
 
@@ -20,7 +20,6 @@
       show: false,
       text: 'Success',
       color: 'success',
-      timeout: 10000,
     }),
 
     created () {
@@ -28,7 +27,6 @@
         if (mutation.type === 'SET_ALERT') {
           this.text = state.alert.text
           this.color = state.alert.color
-          this.timeout = state.alert.timeout
           this.show = state.alert.show
         }
       })

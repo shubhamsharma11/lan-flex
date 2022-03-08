@@ -13,10 +13,7 @@
         <v-btn
           v-for="(s, i) in social"
           :key="i"
-          :color="s.color"
-          dark
           icon
-          min-width="0"
         >
           <v-icon
             :color="s.color"

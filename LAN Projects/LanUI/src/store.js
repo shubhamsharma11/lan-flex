@@ -19,7 +19,11 @@ export default new Vuex.Store({
       state.drawer = payload
     },
     SET_NOTIFICATION (state, payload) {
-      state.notifications.push(payload)
+      if (typeof payload === 'object') {
+        state.notifications.push(payload)
+      } else {
+        state.notifications.splice(payload, 1)
+      }
     },
     SET_ALERT (state, payload) {
       state.alert = payload

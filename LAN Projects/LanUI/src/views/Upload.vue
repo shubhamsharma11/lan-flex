@@ -148,7 +148,6 @@
 
   export default {
     name: 'Upload',
-
     data: () => ({
       fileTypes: [
         {
@@ -171,16 +170,14 @@
         value => (value && value.length <= 30) || 'Max 30 characters',
         value => !!value || 'Required.',
         value => (value && value.length >= 3) || 'Min 3 characters',
-        value => /^[\w\- ]+$/.test(value) || 'No special characters (! @ # $ % ^ & * ( ) { } [ ] , / \\ ` ~) are allowed',
+        value => /^[\w\-. ]+$/.test(value) || 'No special characters (! @ # $ % ^ & * ( ) { } [ ] , / \\ ` ~) are allowed',
       ],
-
       videoTypes: [
         'Movie',
         'TV Series',
         'Music Video',
       ],
       selectedVideoType: null,
-
       fileTitle: null,
       currentStatus: null,
       selectedFile: null,
@@ -257,7 +254,6 @@
             const status = {
               color: 'success',
               text: res.data.message + ' ' + this.fileTitle,
-              timeout: 5000,
               show: true,
             }
             this.setNotification(status)
@@ -270,7 +266,6 @@
               color: 'error',
               text: error.data.message,
               state: error.status,
-              timeout: 5000,
               show: true,
             }
             this.setNotification(status)

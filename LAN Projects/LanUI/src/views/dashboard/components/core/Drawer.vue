@@ -16,6 +16,29 @@
       />
     </template>
 
+    <v-list>
+      <v-list-item>
+        <v-list-item-avatar
+          class="align-self-center"
+          contain
+        >
+          <v-img
+            src="/images/lanflex-logo.png"
+          />
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title
+            class="headline"
+          >
+            LanFlex
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+
+    <v-divider class="mb-2" />
+
     <v-list
       expand
       nav
@@ -121,11 +144,6 @@
       computedItems () {
         return this.items.map(this.mapItem)
       },
-      profile () {
-        return {
-          avatar: true,
-        }
-      },
     },
 
     methods: {
@@ -134,33 +152,6 @@
           ...item,
           children: item.children ? item.children.map(this.mapItem) : undefined,
         }
-        // From Line number 21
-        // <v-divider class="mb-1" />
-        // <v-list
-        //   dense
-        //   nav
-        // >
-        //   <v-list-item>
-        //     <v-list-item-avatar
-        //       class="align-self-center"
-        //       color="white"
-        //       contain
-        //     >
-        //       <v-img
-        //         src="/images/favicon.ico"
-        //         max-height="30"
-        //       />
-        //     </v-list-item-avatar>
-
-        //     <v-list-item-content>
-        //       <v-list-item-title
-        //         class="display-1"
-        //         v-text="profile.title"
-        //       />
-        //     </v-list-item-content>
-        //   </v-list-item>
-        // </v-list>
-        // <v-divider class="mb-2" />
       },
     },
   }

@@ -75,6 +75,8 @@
       offset-y
       origin="top right"
       transition="scale-transition"
+      :close-on-content-click="false"
+      rounded
     >
       <template v-slot:activator="{ attrs, on }">
         <v-btn
@@ -102,23 +104,31 @@
         v-if="notifications.length !== 0"
         :tile="false"
         nav
+        dense
       >
-        <v-list-item
-          v-for="(n, i) in notifications"
-          :key="`item-${i}`"
-        >
-          <v-list-item-title>
-            {{ n.text }}
-          </v-list-item-title>
-        </v-list-item>
-        <!-- <div>
-          <app-bar-item
+        <v-subheader>NOTIFICATIONS</v-subheader>
+        <v-list-item-group>
+          <v-list-item
             v-for="(n, i) in notifications"
             :key="`item-${i}`"
+            :color="n.color"
           >
-            <v-list-item-title v-text="n.message" />
-          </app-bar-item>
-        </div> -->
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ n.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+
+            <v-btn
+              icon
+              @click="removeMessage(i)"
+            >
+              <v-icon>
+                mdi-close
+              </v-icon>
+            </v-btn>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
       <v-list
         v-else
@@ -149,6 +159,15 @@
   export default {
     name: 'DashboardCoreAppBar',
 
+    data: () => ({
+      selectedItem: 1,
+      items: [
+        { text: 'Real-Time', icon: 'mdi-clock' },
+        { text: 'Audience', icon: 'mdi-account' },
+        { text: 'Conversions', icon: 'mdi-flag' },
+      ],
+    }),
+
     props: {
       value: {
         type: Boolean,
@@ -163,7 +182,11 @@
     methods: {
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
+        removeNotification: 'SET_NOTIFICATION',
       }),
+      removeMessage (key) {
+        this.removeNotification(key)
+      },
     },
   }
 </script>
