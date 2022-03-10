@@ -284,7 +284,7 @@ Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform
 - [x] Connect to the database using the .net backend and get all the files and its details
 - [x] Show the files and details in the frontend
 - [ ] Use the signalR server hub to notify everyone if there is a change in the server
-- [ ] Fix the UI issues
+- [x] Fix the UI issues
     - [x] Video is not aligned going out of the screen
     - [x] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
     - [x] Video name box should be of same size and look consistent

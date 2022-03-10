@@ -39,10 +39,10 @@
 
     <v-dialog
       v-model="dialog"
-      max-width="700"
+      max-width="600"
     >
       <v-card
-        class="text-center"
+        class="text-center pa-4"
       >
         <v-card-actions>
           <v-text-field

@@ -262,9 +262,10 @@
           })
           .catch(error => {
             this.currentStatus = STATUS_FAILED
+            console.log(error)
             const status = {
               color: 'error',
-              text: error.data.message,
+              text: error.message,
               state: error.status,
               show: true,
             }

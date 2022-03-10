@@ -14,6 +14,8 @@
           v-for="(s, i) in social"
           :key="i"
           icon
+          elevation="20"
+          class="pt-1 ma-1"
         >
           <v-icon
             :color="s.color"

@@ -16,7 +16,9 @@
       />
     </template>
 
-    <v-list>
+    <v-list
+      class="pa-8"
+    >
       <v-list-item>
         <v-list-item-avatar
           class="align-self-center"
@@ -102,6 +104,16 @@
           icon: 'mdi-arrow-up-thick',
           title: 'Upload',
           to: '/upload',
+        },
+        {
+          icon: 'mdi-history',
+          title: 'History',
+          to: '/history',
+        },
+        {
+          icon: 'mdi-puzzle',
+          title: 'Features',
+          to: '/features',
         },
       ],
     }),

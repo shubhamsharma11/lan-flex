@@ -4,11 +4,6 @@
     fluid
     tag="section"
   >
-    <base-v-component
-      heading="Timelines"
-      link="components/timelines"
-    />
-
     <v-row>
       <v-col>
         <v-timeline align-top>
@@ -97,36 +92,34 @@
       menu: false,
       timelines: [
         {
-          chip: 'Some title',
-          color: 'error',
-          icon: 'mdi-briefcase',
-          text: 'Wifey made the best Father\'s Day meal ever. So thankful so happy so blessed. Thank you for making my family We just had fun with the “future” theme !!! It was a fun night all together ... The always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa and 12th in downtown.',
-          subtext: '11 hours ago via twitter',
+          chip: 'Notify Users for New Item',
+          color: 'info',
+          icon: 'mdi-airplane-landing',
+          text: 'Use the signalR server hub to notify everyone if there is a change in the server. Users would be notified if someone uploads a new item into the system.',
         },
         {
-          chip: 'Another one',
+          chip: 'Save Theme into the DB',
           color: 'success',
           icon: 'mdi-puzzle',
-          text: 'Thank God for the support of my wife and real friends. I also wanted to point out that it’s the first album to go number 1 off of streaming!!! I love you Ellen and also my number one design rule of anything I do from shoes to music to homes is that Kim has to like it....',
+          text: 'Themes and background should be saved in the database for the user',
         },
         {
-          chip: 'Another title',
-          color: 'info',
-          icon: 'mdi-fingerprint',
-          text: 'Called I Miss the Old Kanye That’s all it was Kanye And I love you like Kanye loves Kanye Famous viewing @ Figueroa and 12th in downtown LA 11:10PM. What if Kanye made a song about Kanye Royère doesn\'t make a Polar bear bed but the Polar bear couch is my favorite piece of furniture we own It wasn’t any Kanyes Set on his goals Kanye',
-          action: 'info',
-          actionIcon: 'mdi-wrench',
-          actions: [
-            'Action',
-            'Another Action',
-            'Something else here',
-          ],
-        },
-        {
-          chip: 'Another one',
+          chip: 'Search',
           color: 'warning',
-          icon: 'mdi-airplane-landing',
-          text: 'Tune into Big Boy\'s 92.3 I\'m about to play the first single from Cruel Winter also to Kim’s hair and makeup Lorraine jewelry and the whole style squad at Balmain and the Yeezy team. Thank you Anna for the invite thank you to the whole Vogue team',
+          icon: 'mdi-magnify',
+          text: 'User can search data from the search box and show on the search result page',
+        },
+        {
+          chip: 'Installer',
+          color: 'error',
+          icon: 'mdi-fingerprint',
+          text: 'Create an installer which will install and place all the related file at respective places. And create the service/site and start them.',
+        },
+        {
+          chip: 'Login',
+          color: 'info',
+          icon: 'mdi-login',
+          text: 'Login functionality for all the user and save the user data into the DB.',
         },
       ],
     }),

@@ -221,6 +221,47 @@ namespace LanFlexWebAPI.Controllers
         }
 
         /// <summary>
+        /// GET video/GetHistory
+        /// To History
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetHistory")]
+        public IActionResult GetHistory()
+        {
+            List<object> historyList = new List<object>();
+
+            try
+            {
+                using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))
+                {
+                    mySqlConnection.Open();
+
+                    MySqlCommand cmd = mySqlConnection.CreateCommand();
+                    cmd.CommandText = Constants.HistorySelectStmt;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        historyList.Add(new
+                        {
+                            Name = reader.GetString("Name"),
+                            Type = reader.GetString("Type"),
+                            UploadedTime = reader.GetString("UploadedTime")
+                        });
+                    }
+                    reader.Close();
+                }
+
+                return Ok(JsonConvert.SerializeObject(historyList));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
         /// POST video/UploadFile
         /// To Upload the file from the FormData
         /// </summary>

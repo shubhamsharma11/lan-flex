@@ -35,6 +35,18 @@ export default new Router({
           path: '/upload',
           component: () => import('@/views/Upload'),
         },
+        // History
+        {
+          name: 'History',
+          path: '/history',
+          component: () => import('@/views/History'),
+        },
+        // Features
+        {
+          name: 'Features',
+          path: '/features',
+          component: () => import('@/views/Features'),
+        },
         // Pages
         {
           name: 'User Profile',
