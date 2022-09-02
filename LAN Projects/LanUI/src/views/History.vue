@@ -27,24 +27,23 @@
           <v-card class="mt-0 px-5">
             <v-card-title>
               Task History
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
                 label="Search"
                 single-line
                 hide-details
-              ></v-text-field>
+              />
             </v-card-title>
             <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="items"
-              :search="search"
-              :loading="loading"
-              loading-text="Loading... Please wait"
-            >
-            </v-data-table>
+              <v-data-table
+                :headers="headers"
+                :items="items"
+                :search="search"
+                :loading="loading"
+                loading-text="Loading... Please wait"
+              />
             </v-card-text>
           </v-card>
         </v-tab-item>
