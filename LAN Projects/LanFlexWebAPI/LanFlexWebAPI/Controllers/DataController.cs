@@ -203,10 +203,10 @@ namespace LanFlexWebAPI.Controllers
                         {
                             Name = reader.GetString("Name"),
                             Extension = reader.GetString("Extension"),
-                            FilePath = reader.GetString("Path"),
+                            FilePath = reader.GetString("FilePath"),
                             FileId = reader.GetInt32("FileId"),
-                            ThumbPath = reader.IsDBNull(7) ? null : reader.GetString("ThumbPath"),
-                            Details = reader.IsDBNull(8) ? null : reader.GetString("Details")
+                            ThumbPath = reader.IsDBNull("ThumbPath") ? null : reader.GetString("ThumbPath"),
+                            Details = reader.IsDBNull("Details") ? null : reader.GetString("Details")
                         });
                     }
                     reader.Close();
