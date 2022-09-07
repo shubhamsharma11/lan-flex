@@ -121,12 +121,29 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-LanFlex is a project which can be deployed to a local are network and provides a way to view and upload files (Video, Audio and Images) from all the devices.
+LanFlex is a project which can be deployed to a local area network and provides a way to view and upload files (Video, Audio and Images) from all the devices.
 It has mainly 4 parts :
-> * Drive Scanner : A Console application to scan the specified folder and store the file details in the database.
-> * Fron-End : A Vue JS project which displays the list of files and show the content of the file.
-> * Back-End : An ASP .Net Core project which provides the WEB APIs to show and manipulate data.
-> * Database : A SQL Server database to store the files details.
+
+> * **Drive Scanner** : A Console application to scan the specified folder and store the file details in the database.
+> * **Fron-End** : A Vue JS project which displays the list of files and show the content of the file.
+> * **Back-End** : An ASP .Net Core project which provides the WEB APIs to show and manipulate data.
+> * **Database** : A SQL Server database to store the files details, User Settings and history.
+
+This project converts your local system or home PC to a private local server. Which you can access from any device connected with the same network as the server.
+
+But, of course there are some settings we have to do and some services we need to install. I have explained them in details below.
+
+###### TODO: Add steps to install and build the project
+-------------------------------------------
+
+There are some steps we need to follow before the deploying it :
+
+> * **Install IIS** : IIS is a service which will basically turn your PC into a server. Here we will publish/deploy our backend.You can add IIS from **Turn Windows Features On or Off**
+> * Install .net core web hosting
+> * Create all file upload path properly
+> * Run all the scripts to create the db and db objects
+> * Enable inbound ports from the firewall
+
 
 -------------------------------------------
 
