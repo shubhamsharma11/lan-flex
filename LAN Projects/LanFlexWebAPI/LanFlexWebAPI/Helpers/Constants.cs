@@ -10,9 +10,9 @@
         public static string VideoSelectStmt = "SELECT * FROM `lanflex`.`filesdetails` WHERE Type = 'Video'";
         public static string AudioSelectStmt = "SELECT * FROM `lanflex`.`filesdetails` WHERE Type = 'Audio'";
         public static string ImagesSelectStmt = "SELECT * FROM `lanflex`.`filesdetails` WHERE Type = 'Image'";
-        public static string HistorySelectStmt = "SELECT fd.Name, fd.Type, h.UploadedTime FROM History h INNER JOIN filesdetails fd WHERE h.UploadedFileId = fd.FileId ORDER BY h.UploadedTime";
+        public static string HistorySelectStmt = "SELECT fd.Name, fd.Type, h.UploadedTime FROM History h INNER JOIN filesdetails fd WHERE h.FileId = fd.FileId ORDER BY h.UploadedTime";
         public static string InsertFileStmt = "INSERT INTO `lanflex`.`filesdetails`(`Name`, `FilePath`, `Extension`, `Type`, `LastUpdatedAt`, `CreatedAt`)" +
-            "VALUES (@Name, @Path, @Extension, @Type, @LastUpdatedAt, @CreatedAt)";
+            "VALUES (@Name, @FilePath, @Extension, @Type, @LastUpdatedAt, @CreatedAt)";
         public static string UploadFolderName = "/UploadedFiles";
     }
 }

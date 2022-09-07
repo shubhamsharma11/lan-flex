@@ -115,10 +115,10 @@ namespace LanFlexWebAPI.Controllers
                         {
                             Name = reader.GetString("Name"),
                             Extension = reader.GetString("Extension"),
-                            FilePath = reader.GetString("Path"),
+                            FilePath = reader.GetString("FilePath"),
                             FileId = reader.GetInt32("FileId"),
-                            ThumbPath = reader.IsDBNull(7) ? null : reader.GetString("ThumbPath"),
-                            Details = reader.IsDBNull(8) ? null : reader.GetString("Details")
+                            ThumbPath = reader.IsDBNull("ThumbPath") ? null : reader.GetString("ThumbPath"),
+                            Details = reader.IsDBNull("Details") ? null : reader.GetString("Details")
                         });
                     }
                     reader.Close();
@@ -159,10 +159,10 @@ namespace LanFlexWebAPI.Controllers
                         {
                             Name = reader.GetString("Name"),
                             Extension = reader.GetString("Extension"),
-                            FilePath = reader.GetString("Path"),
+                            FilePath = reader.GetString("FilePath"),
                             FileId = reader.GetInt32("FileId"),
-                            ThumbPath = reader.IsDBNull(7) ? null : reader.GetString("ThumbPath"),
-                            Details = reader.IsDBNull(8) ? null : reader.GetString("Details")
+                            ThumbPath = reader.IsDBNull("ThumbPath") ? null : reader.GetString("ThumbPath"),
+                            Details = reader.IsDBNull("Details") ? null : reader.GetString("Details")
                         });
                     }
                     reader.Close();
@@ -289,7 +289,7 @@ namespace LanFlexWebAPI.Controllers
 
                     var fileName = file.FileName;
                     var filePath = _webHost.ContentRootPath + Constants.UploadFolderName + "/" + fileType + "/" + fileName;
-                    var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);                    
+                    var extension = fileName.Substring(fileName.LastIndexOf('.') + 1);
 
                     using (MySqlConnection mySqlConnection = new MySqlConnection(appSettings.connectionString))
                     {
@@ -300,7 +300,7 @@ namespace LanFlexWebAPI.Controllers
                         cmd.CommandType = CommandType.Text;
 
                         cmd.Parameters.AddWithValue("@Name", string.IsNullOrEmpty(fileTitle) ? file.FileName : fileTitle);
-                        cmd.Parameters.AddWithValue("@Path", file.FileName);
+                        cmd.Parameters.AddWithValue("@FilePath", file.FileName);
                         cmd.Parameters.AddWithValue("@Extension", extension);
                         cmd.Parameters.AddWithValue("@Type", fileType);
                         cmd.Parameters.AddWithValue("@LastUpdatedAt", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
