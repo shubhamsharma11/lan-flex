@@ -3,8 +3,7 @@
     id="app-bar"
     absolute
     app
-    flat
-    height="75"
+    height="60"
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :src="barImage"
   >
@@ -12,7 +11,7 @@
       <v-img
         v-bind="props"
         :gradient="`to bottom, ${barColor}`"
-      ></v-img>
+      />
     </template>
 
     <v-btn
@@ -38,28 +37,37 @@
 
     <v-spacer />
 
-    <v-text-field
-      :label="Search"
-      color="primary"
-      hide-details
-      style="max-width: 165px;"
+    <v-dialog
+      v-model="dialog"
+      max-width="600"
     >
-      <template
-        v-if="$vuetify.breakpoint.mdAndUp"
-        v-slot:append-outer
+      <v-card
+        class="text-center pa-4"
       >
-        <v-btn
-          class="mt-n2"
-          elevation="1"
-          fab
-          small
-        >
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </template>
-    </v-text-field>
+        <v-card-actions>
+          <v-text-field
+            label="Search"
+            color="primary"
+            hide-details
+          >
+            <template
+              v-slot:append
+            >
+              <v-icon>mdi-logout</v-icon>
+            </template>
+          </v-text-field>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
-    <div class="mx-3" />
+    <v-btn
+      class="ml-2"
+      min-width="0"
+      text
+      @click="dialog = true"
+    >
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
 
     <v-btn
       class="ml-2"
@@ -76,6 +84,8 @@
       offset-y
       origin="top right"
       transition="scale-transition"
+      :close-on-content-click="false"
+      rounded
     >
       <template v-slot:activator="{ attrs, on }">
         <v-btn
@@ -91,7 +101,7 @@
             bordered
           >
             <template v-slot:badge>
-              <span>{{notifications.length}}</span>
+              <span>{{ notifications.length }}</span>
             </template>
 
             <v-icon>mdi-bell</v-icon>
@@ -100,17 +110,43 @@
       </template>
 
       <v-list
+        v-if="notifications.length !== 0"
         :tile="false"
         nav
+        dense
       >
-        <div>
-          <app-bar-item
+        <v-subheader>NOTIFICATIONS</v-subheader>
+        <v-list-item-group>
+          <v-list-item
             v-for="(n, i) in notifications"
             :key="`item-${i}`"
+            :color="n.color"
           >
-            <v-list-item-title v-text="n" />
-          </app-bar-item>
-        </div>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ n.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+
+            <v-btn
+              icon
+              @click="removeMessage(i)"
+            >
+              <v-icon>
+                mdi-close
+              </v-icon>
+            </v-btn>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <v-list
+        v-else
+      >
+        <v-list-item>
+          <v-list-item-title>
+            No notifications yet
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
 
@@ -126,40 +162,15 @@
 </template>
 
 <script>
-  // Components
-  import { VHover, VListItem } from 'vuetify/lib'
-
   // Utilities
   import { mapState, mapMutations } from 'vuex'
 
   export default {
     name: 'DashboardCoreAppBar',
 
-    components: {
-      AppBarItem: {
-        render (h) {
-          return h(VHover, {
-            scopedSlots: {
-              default: ({ hover }) => {
-                return h(VListItem, {
-                  attrs: this.$attrs,
-                  class: {
-                    'black--text': !hover,
-                    'white--text primary elevation-12': hover,
-                  },
-                  props: {
-                    activeClass: '',
-                    dark: hover,
-                    link: true,
-                    ...this.$attrs,
-                  },
-                }, this.$slots.default)
-              },
-            },
-          })
-        },
-      },
-    },
+    data: () => ({
+      dialog: false,
+    }),
 
     props: {
       value: {
@@ -168,24 +179,18 @@
       },
     },
 
-    data: () => ({
-      notifications: [
-        'Mike John Responded to your email',
-        'You have 5 new tasks',
-        'You\'re now friends with Andrew',
-        'Another Notification',
-        'Another one',
-      ],
-    }),
-
     computed: {
-      ...mapState(['drawer', 'barColor', 'barImage']),
+      ...mapState(['drawer', 'barColor', 'barImage', 'notifications']),
     },
 
     methods: {
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
+        removeNotification: 'SET_NOTIFICATION',
       }),
+      removeMessage (key) {
+        this.removeNotification(key)
+      },
     },
   }
 </script>

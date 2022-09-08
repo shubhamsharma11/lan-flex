@@ -17,6 +17,31 @@
     </template>
 
     <v-list
+      class="pa-8"
+    >
+      <v-list-item>
+        <v-list-item-avatar
+          class="align-self-center"
+          contain
+        >
+          <v-img
+            src="/images/lanflex-logo.png"
+          />
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title
+            class="headline"
+          >
+            LanFlex
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+
+    <v-divider class="mb-2" />
+
+    <v-list
       expand
       nav
     >
@@ -81,29 +106,14 @@
           to: '/upload',
         },
         {
-          icon: 'mdi-account',
-          title: 'user',
-          to: '/pages/user',
+          icon: 'mdi-history',
+          title: 'History',
+          to: '/history',
         },
         {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/components/typography',
-        },
-        {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/components/icons',
-        },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
-          to: '/maps/google-maps',
-        },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/components/notifications',
+          icon: 'mdi-puzzle',
+          title: 'Features',
+          to: '/features',
         },
       ],
     }),
@@ -121,11 +131,6 @@
       computedItems () {
         return this.items.map(this.mapItem)
       },
-      profile () {
-        return {
-          avatar: true,
-        }
-      },
     },
 
     methods: {
@@ -134,33 +139,6 @@
           ...item,
           children: item.children ? item.children.map(this.mapItem) : undefined,
         }
-        // From Line number 21
-        // <v-divider class="mb-1" />
-        // <v-list
-        //   dense
-        //   nav
-        // >
-        //   <v-list-item>
-        //     <v-list-item-avatar
-        //       class="align-self-center"
-        //       color="white"
-        //       contain
-        //     >
-        //       <v-img
-        //         src="/images/favicon.ico"
-        //         max-height="30"
-        //       />
-        //     </v-list-item-avatar>
-
-        //     <v-list-item-content>
-        //       <v-list-item-title
-        //         class="display-1"
-        //         v-text="profile.title"
-        //       />
-        //     </v-list-item-content>
-        //   </v-list-item>
-        // </v-list>
-        // <v-divider class="mb-2" />
       },
     },
   }

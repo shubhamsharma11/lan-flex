@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UploadedFiles\" />
+    <Folder Include="UploadedFiles\Image\" />
+    <Folder Include="UploadedFiles\Audio\" />
+    <Folder Include="UploadedFiles\Video\" />
   </ItemGroup>
 
 

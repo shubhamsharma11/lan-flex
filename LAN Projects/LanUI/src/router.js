@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
         // Dashboard
         {
@@ -34,6 +35,18 @@ export default new Router({
           name: 'Upload',
           path: '/upload',
           component: () => import('@/views/Upload'),
+        },
+        // History
+        {
+          name: 'History',
+          path: '/history',
+          component: () => import('@/views/History'),
+        },
+        // Features
+        {
+          name: 'Features',
+          path: '/features',
+          component: () => import('@/views/Features'),
         },
         // Pages
         {

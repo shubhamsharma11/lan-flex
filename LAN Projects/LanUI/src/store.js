@@ -8,7 +8,8 @@ export default new Vuex.Store({
     barColor: 'rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)',
     barImage: '/images/sidebar-1.jpg',
     drawer: null,
-    notification: null,
+    notifications: [],
+    alert: null,
   },
   mutations: {
     SET_BAR_IMAGE (state, payload) {
@@ -18,10 +19,14 @@ export default new Vuex.Store({
       state.drawer = payload
     },
     SET_NOTIFICATION (state, payload) {
-      state.notification = payload
+      if (typeof payload === 'object') {
+        state.notifications.push(payload)
+      } else {
+        state.notifications.splice(payload, 1)
+      }
     },
-  },
-  actions: {
-
+    SET_ALERT (state, payload) {
+      state.alert = payload
+    },
   },
 })

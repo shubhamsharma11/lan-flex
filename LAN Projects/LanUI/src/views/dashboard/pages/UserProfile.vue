@@ -4,6 +4,11 @@
     fluid
     tag="section"
   >
+    <dashboard-pages-timeline />
+    <tabs />
+    <grid />
+    <buttons />
+
     <v-row justify="center">
       <v-col
         cols="12"
@@ -172,7 +177,21 @@
 </template>
 
 <script>
+  import DashboardPagesTimeline from './Timeline.vue'
+  import Tabs from './../component/Tabs.vue'
+  import Grid from './../component/Grid.vue'
+  import Buttons from '../component/Buttons.vue'
+
   export default {
+    name: 'Videos',
+
+    components: {
+      DashboardPagesTimeline,
+      Grid,
+      Tabs,
+      Buttons,
+    },
+
     //
   }
 </script>

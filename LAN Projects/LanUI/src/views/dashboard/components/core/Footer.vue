@@ -11,14 +11,16 @@
         cols="12"
       >
         <v-btn
-          v-for="icon in icons"
-          :key="icon"
+          v-for="(s, i) in social"
+          :key="i"
           icon
-          class="pl-6 pr-6"
+          elevation="20"
+          class="pt-1 ma-1"
         >
-          <v-icon size="24px">
-            {{ icon }}
-          </v-icon>
+          <v-icon
+            :color="s.color"
+            v-text="s.icon"
+          />
         </v-btn>
       </v-col>
       <v-btn
@@ -62,11 +64,47 @@
           text: 'Licenses',
         },
       ],
-      icons: [
-        'mdi-facebook',
-        'mdi-twitter',
-        'mdi-linkedin',
-        'mdi-instagram',
+      social: [
+        {
+          color: '#55ACEE',
+          icon: 'mdi-twitter',
+        },
+        {
+          color: '#3B5998',
+          icon: 'mdi-facebook',
+        },
+        {
+          color: '#DD4b39',
+          icon: 'mdi-google-plus',
+        },
+        {
+          color: '#0976B4',
+          icon: 'mdi-linkedin',
+        },
+        {
+          color: '#CC2127',
+          icon: 'mdi-pinterest',
+        },
+        {
+          color: '#E52D27',
+          icon: 'mdi-youtube',
+        },
+        {
+          color: '#333333',
+          icon: 'mdi-github',
+        },
+        {
+          color: '#e94e31',
+          icon: 'mdi-git',
+        },
+        {
+          color: '#db4128',
+          icon: 'mdi-gitlab',
+        },
+        {
+          color: '#FF4500',
+          icon: 'mdi-reddit',
+        },
       ],
     }),
   }

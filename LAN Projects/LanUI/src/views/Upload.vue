@@ -138,6 +138,7 @@
 <script>
   import * as axios from 'axios'
   import { variables } from '../constants.js'
+  import { mapMutations } from 'vuex'
 
   const STATUS_INITIAL = 0
   const STATUS_FILE_SELECTED = 1
@@ -147,7 +148,6 @@
 
   export default {
     name: 'Upload',
-
     data: () => ({
       fileTypes: [
         {
@@ -163,25 +163,24 @@
           fileTypeCode: 'image/*',
         },
       ],
+      errorMessages: null,
+      snackBar: false,
       selectedFileType: null,
       rules: [
-        value => value.length <= 30 || 'Max 30 characters',
+        value => (value && value.length <= 30) || 'Max 30 characters',
         value => !!value || 'Required.',
-        value => (value && value.length >= 10) || 'Min 10 characters',
-        value => /^[\w\- ]+$/.test(value) || 'No special characters (! @ # $ % ^ & * ( ) { } [ ] . , / \\ ` ~) are allowed',
+        value => (value && value.length >= 3) || 'Min 3 characters',
+        value => /^[\w\-. ]+$/.test(value) || 'No special characters (! @ # $ % ^ & * ( ) { } [ ] , / \\ ` ~) are allowed',
       ],
-
       videoTypes: [
         'Movie',
         'TV Series',
         'Music Video',
       ],
       selectedVideoType: null,
-
       fileTitle: null,
       currentStatus: null,
       selectedFile: null,
-      status: {},
       uploadedPercentage: 0,
     }),
 
@@ -208,6 +207,11 @@
     },
 
     methods: {
+      ...mapMutations({
+        setNotification: 'SET_NOTIFICATION',
+        setAlert: 'SET_ALERT',
+      }),
+
       onSelectFile (event) {
         if (event.target.files.length !== 0) {
           this.currentStatus = STATUS_FILE_SELECTED
@@ -247,19 +251,26 @@
         )
           .then(res => {
             this.currentStatus = STATUS_SUCCESS
-            this.status.color = 'success'
-            this.status.message = res.message
-            this.status.state = res.status
+            const status = {
+              color: 'success',
+              text: res.data.message + ' ' + this.fileTitle,
+              show: true,
+            }
+            this.setNotification(status)
+            this.setAlert(status)
             this.reset()
           })
           .catch(error => {
             this.currentStatus = STATUS_FAILED
-            this.status.color = 'error'
-            this.status.message = error.message
-            this.status.state = error.status
+            const status = {
+              color: 'error',
+              text: error.message,
+              state: error.status,
+              show: true,
+            }
+            this.setNotification(status)
+            this.setAlert(status)
           })
-
-        this.$store.commit('SET_NOTIFICATION', this.status)
       },
 
       reset () {
