@@ -6,62 +6,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-
-[license-url]: https://github.com/shubham-sharma-0834/lan-flex/blob/master/LICENSE.txt
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
-[linkedin-url]: https://linkedin.com/in/othneildrew
-
-[version-shield]: https://img.shields.io/badge/VERSION-1.0-brightgreen?style=for-the-badge
-
-[github-issues-shield]: https://img.shields.io/github/issues/shubhamsharma11/lanflex?label=Open%20issues&style=for-the-badge
-
-[github-issues-url]: https://github.com/shubhamsharma11/lan-flex/issues
-
-[github-closed-issues-shield]: https://img.shields.io/github/issues-closed-raw/shubhamsharma11/lanflex?color=blue&label=closed%20issues&style=for-the-badge
-
-[github-closed-issues-url]: https://github.com/shubhamsharma11/lan-flex/issues?q=is%3Aissue+is%3Aclosed
-
-[product-screenshot]: images/screenshot.png
-
-[product-screenshot2]: images/branch.png
-
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-
-[Next-url]: https://nextjs.org/
-
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-
-[React-url]: https://reactjs.org/
-
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-
-[Vue-url]: https://vuejs.org/
-
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-
-[Angular-url]: https://angular.io/
-
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-
-[Svelte-url]: https://svelte.dev/
-
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-
-[Laravel-url]: https://laravel.com
-
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-
-[Bootstrap-url]: https://getbootstrap.com
-
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-
-[JQuery-url]: https://jquery.com 
 
 <!-- PROJECT LOGO -->
 <div align="center">
@@ -97,30 +41,34 @@
 >   * [Screenshots](#screenshots)
 >   * [Features](#features)
 > * [Roadmap](#roadmap)
+> * [File Structure](#file-structure)
 > * [Code](#code)
 >   * [Content](#content)
 >   * [Requirements](#requirements)
 >   * [Limitations](#limitations)
 >   * [Build](#build)
 >   * [Deploy (how to install build product)](#deploy-how-to-install-build-product)
+> * [Browser Support](#browser-support)
+> * [Technical Support or Questions](#technical-support-or-questions)
 > * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
 > * [Contributing / Reporting issues](#contributing--reporting-issues)
 > * [License](#license)
 > * [Contact](#contact)
 > * [Acknowledgments](#acknowledgments)
+> * [Useful Links](#useful-links)
 
 -------------------------------------
 
 ## About The Project
-LanFlex is a project which can be deployed to a local area network and provides a way to view and upload files (Video, Audio and Images) from all the devices.
-It has mainly 4 parts :
+LanFlex is a project which can be deployed to a local computer or home PC in a local area network and provides a way to view and upload files (Video, Audio and Images) from all the devices connected in the same network.
+It has basically 4 main parts :
 
 > * **Drive Scanner** : A Console application to scan the specified folder and store the file details in the database.
 > * **Fron-End** : A Vue JS project which displays the list of files and show the content of the file.
 > * **Back-End** : An ASP .Net Core project which provides the WEB APIs to show and manipulate data.
 > * **Database** : A SQL Server database to store the files details, User Settings and history.
 
-This project converts your local system or home PC into a private local server. Which you can access from any device connected with the same network as the server.
+This project converts your local system or home PC into a private local server. Which can be accessed from any device connected in the same network as the server.
 
 But, of course there are some settings we have to do and some services we need to install. I have explained them in details below.
 
@@ -216,15 +164,59 @@ foobar.singularize('phenomena')
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-### Screenshots
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-[![Product Name Screen Shot][product-screenshot2]](https://example.com)
+The UI contains mainly a dashboard, an upload screen, a history screen and separate screens for each file types.
 
 ### Features
+> * **Dashboard**: This is the landing page. Here you will see all the type of files present. And total how many files are uploaded so far.
+> * **Videos**: This is the place to show all the videos uploaded so far. As soon as the **Play video** button is clicked the video will start playing in the **Video Player**.
+> * **Audios**: This is the place to show all the audios uploaded so far. As soon as the **Play Audio** button is clicked the audio will start playing in the **Audio Player**.
+> * **Images**: This is the place to show all the images uploaded so far. As soon as the image is clicked the image will open in the **Image Viewer**.
+> * **Upload**: Here user will be able to upload any file. The user just needs to select the file type and then the file needs to be uploaded. And once the submit button gets hit the file will be upload and it will be available to use.
+> * **Task History**: Here the overall upload history will be visible.
+> ***
+
+
+### Screenshots
+[![dashboard][dashboard]][dashboard]
+[![videos][videos]][videos]
+[![video-player][video-player]][video-player]
+[![audios][audios]][audios]
+[![audio-player][audio-player]][audio-player]
+[![images][images]][images]
+[![image-viewer][image-viewer]][image-viewer]
+[![upload][upload]][upload]
+[![task-history][task-history]][task-history]
+
+<p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
+
+-------------------------------------
+
+## Roadmap
+
+- [x] Scans the whole drive and store that data and file details in the database using the console application or a service
+- [x] Connect to the database using the .net backend and get all the files and its details
+- [x] Show the files and details in the frontend
+- [ ] Use the signalR server hub to notify everyone if there is a change in the server
+- [x] Fix the UI issues
+    - [x] Video is not aligned going out of the screen
+    - [x] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
+    - [x] Video name box should be of same size and look consistent
+- [ ] Themes and background should be saved in the database for the user
+- [ ] User profile page should have a preferences check boxes where user will enter the file preferences like video audio or images or movies tv series or music videos. Preferences button should be in the settings
+- [ ] And in the settings images should be selected only if the check box Is selected.
+- [x] Show default thumbnail for the video/audio
+- [x] Create thumbnails for video in .net - Did not create but showing default image / thumb
+- [ ] While uplaoding user has to provide some basic info for the file like file title, description, genre, type (movie/tv series/music video) and file type like (video/audio/image)
+- [ ] Other than the above details there will be some more details which will not be shown to the user like date time of the upload, user name who uploaded the file, etc.
+- [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
+- [ ] Dashboard items can be restricted from users to user. Like for Admin there should be a field which will show active users / no. Of active users.
+- [ ] Use the TMDB API in the project to get the different details of the Movie / TV Series (https://www.themoviedb.org/u/ssharma0834 | https://www.themoviedb.org/documentation/api
+  - [ ] To get the movie by id -> https://api.themoviedb.org/3/movie/popular?api_key=cdadec61df96e7b7cdd116432ca9aaa0
+  - [ ] To list all the popular movies -> https://api.themoviedb.org/3/discover/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0
+  - [ ] To search for any movie -> https://api.themoviedb.org/3/search/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0&query=dil
+
+
+See the [open issues](https://github.com/shubham-sharma-0834/lan-flex/issues) for a full list of proposed features (and known issues).
 
 <p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
@@ -235,91 +227,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 Within the download you'll find the following directories and files:
 
 ```
-vuetify-material-dashboard
+LAN-FLEX
+├── DB Scrips
+├── images
+├── LAN Projects
+│   ├── LANUI
+│   ├── LanFlexWebAPI
+├── .gitignore
+├── LICENSE
 ├── README.md
-├── CHANGELOG.md
-├── babel.config.js
-├── cypress.json
-├── jest.config.js
-├── now.json
-├── package.json
-├── postcss.config.js
-├── public
-│   ├── favicon.ico
-│   └── index.html
-├── src
-│   ├── App.vue
-│   ├── assets
-│   │   └── vuetify.svg
-│   ├── components
-│   │   └── base
-│   │       ├── Card.vue
-│   │       ├── Item.vue
-│   │       ├── ItemGroup.vue
-│   │       ├── ItemSubGroup.vue
-│   │       ├── MaterialAlert.vue
-│   │       ├── MaterialCard.vue
-│   │       ├── MaterialChartCard.vue
-│   │       ├── MaterialSnackbar.vue
-│   │       ├── MaterialStatsCard.vue
-│   │       ├── MaterialTabs.vue
-│   │       ├── MaterialTestimony.vue
-│   │       ├── Subheading.vue
-│   │       └── VComponent.vue
-│   ├── i18n.js
-│   ├── locales
-│   │   └── en.json
-│   ├── main.js
-│   ├── plugins
-│   │   ├── base.js
-│   │   ├── chartist.js
-│   │   ├── vee-validate.js
-│   │   └── vuetify.js
-│   ├── router.js
-│   ├── sass
-│   │   ├── main.scss
-│   │   ├── overrides.sass
-│   │   └── vuetify-material
-│   │       └── _sidebar.sass
-│   ├── store.js
-│   └── views
-│       └── dashboard
-│           ├── Charts.vue
-│           ├── Dashboard.vue
-│           ├── Index.vue
-│           ├── Widgets.vue
-│           ├── component
-│           │   ├── Buttons.vue
-│           │   ├── Grid.vue
-│           │   ├── Icons.vue
-│           │   ├── Notifications.vue
-│           │   ├── Tabs.vue
-│           │   └── Typography.vue
-│           ├── components
-│           │   └── core
-│           │       ├── AppBar.vue
-│           │       ├── Drawer.vue
-│           │       ├── Footer.vue
-│           │       ├── Settings.vue
-│           │       └── View.vue
-│           ├── maps
-│           │   └── GoogleMaps.vue
-│           ├── pages
-│           │   └── UserProfile.vue
-│           └── tables
-│               └── RegularTables.vue
-├── tests
-│   ├── e2e
-│   │   ├── plugins
-│   │   │   └── index.js
-│   │   ├── specs
-│   │   │   └── test.js
-│   │   └── support
-│   │       ├── commands.js
-│   │       └── index.js
-│   └── unit
-│       └── example.spec.js
-├── vue.config.js
+├── Software Require Document.docx
 ```
 <p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
@@ -361,35 +278,31 @@ Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform
 
 At present, we officially aim to support the last two versions of the following browsers:
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64">
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64">
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64">
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64">
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
 
 
-## Roadmap
+## Technical Support or Questions
 
-- [x] Scans the whole drive and store that data and file details in the database using the console application or a service
-- [x] Connect to the database using the .net backend and get all the files and its details
-- [x] Show the files and details in the frontend
-- [ ] Use the signalR server hub to notify everyone if there is a change in the server
-- [x] Fix the UI issues
-    - [x] Video is not aligned going out of the screen
-    - [x] Video name should be aligned - wrapped around the text like Avengers 2 (Age of ….)
-    - [x] Video name box should be of same size and look consistent
-- [ ] Themes and background should be saved in the database for the user
-- [ ] User profile page should have a preferences check boxes where user will enter the file preferences like video audio or images or movies tv series or music videos. Preferences button should be in the settings
-- [ ] And in the settings images should be selected only if the check box Is selected.
-- [x] Show default thumbnail for the video/audio
-- [x] Create thumbnails for video in .net - Did not create but showing default image / thumb
-- [ ] While uplaoding user has to provide some basic info for the file like file title, description, genre, type (movie/tv series/music video) and file type like (video/audio/image)
-- [ ] Other than the above details there will be some more details which will not be shown to the user like date time of the upload, user name who uploaded the file, etc.
-- [ ] Create an installer which will install and place all the related file at respective places. And create the service/site and start them.
-- [ ] Dashboard items can be restricted from users to user. Like for Admin there should be a field which will show active users / no. Of active users.
-- [ ] Use the TMDB API in the project to get the different details of the Movie / TV Series (https://www.themoviedb.org/u/ssharma0834 | https://www.themoviedb.org/documentation/api
-  - [ ] To get the movie by id -> https://api.themoviedb.org/3/movie/popular?api_key=cdadec61df96e7b7cdd116432ca9aaa0
-  - [ ] To list all the popular movies -> https://api.themoviedb.org/3/discover/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0
-  - [ ] To search for any movie -> https://api.themoviedb.org/3/search/movie?api_key=cdadec61df96e7b7cdd116432ca9aaa0&query=dil
+If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
 
+<p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
-See the [open issues](https://github.com/shubham-sharma-0834/lan-flex/issues) for a full list of proposed features (and known issues).
+-------------------------------------
+
+## Resources (Documentation and other links)
+
+- [Live Preview](https://demos.creative-tim.com/vuetify-material-dashboard?ref=vtymdp-readme)
+- Download Page: [Download](https://www.creative-tim.com/product/vuetify-material-dashboard?ref=vtymdp-readme)
+- Documentation is [Here](https://vuetifyjs.com/en/components/api-explorer)
+- License Agreement: [License](https://www.creative-tim.com/license)
+- Support: [Contact](https://www.creative-tim.com/contact-us)
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues)
+- Vue Material Dashboard PRO - [Demo](https://www.creative-tim.com/product/vue-material-dashboard-pro?ref=vtymdp-readme)
+- For Front End Development - [Material Kit Pro ](https://www.creative-tim.com/product/material-kit-pro?ref=vtymdp-readme)
 
 <p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
@@ -423,14 +336,6 @@ We use GitHub Issues as the official bug tracker for the **Vuetify Material Dash
 
 -------------------------------------
 
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
-
-<p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
-
--------------------------------------
-
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
@@ -440,16 +345,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 -------------------------------------
 
-## Resources (Documentation and other links)
+## Contact
 
-- [Live Preview](https://demos.creative-tim.com/vuetify-material-dashboard?ref=vtymdp-readme)
-- Download Page: [Download](https://www.creative-tim.com/product/vuetify-material-dashboard?ref=vtymdp-readme)
-- Documentation is [Here](https://vuetifyjs.com/en/components/api-explorer)
-- License Agreement: [License](https://www.creative-tim.com/license)
-- Support: [Contact](https://www.creative-tim.com/contact-us)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues)
-- Vue Material Dashboard PRO - [Demo](https://www.creative-tim.com/product/vue-material-dashboard-pro?ref=vtymdp-readme)
-- For Front End Development - [Material Kit Pro ](https://www.creative-tim.com/product/material-kit-pro?ref=vtymdp-readme)
+Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
@@ -472,16 +372,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 -------------------------------------
 
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
-
--------------------------------------
-
 ## Useful Links
 
 - [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
@@ -494,18 +384,84 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 - [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
 
-### Social Media
 
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
+[![Twitter][twitter-shield]][twitter-url]
+[![Facebook][facebook-shield]][facebook-url]
+[![Instagram][instagram-shield]][instagram-url]
 
 <p align="right">[<a href="#top">Back to Top &#8593;</a>]</p>
 
 -------------------------------------
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+
+[license-url]: https://github.com/shubham-sharma-0834/lan-flex/blob/master/LICENSE.txt
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[linkedin-url]: https://linkedin.com/in/othneildrew
+
+[version-shield]: https://img.shields.io/badge/VERSION-1.0-brightgreen?style=for-the-badge
+
+[github-issues-shield]: https://img.shields.io/github/issues/shubhamsharma11/lanflex?label=Open%20issues&style=for-the-badge
+
+[github-issues-url]: https://github.com/shubhamsharma11/lan-flex/issues
+
+[github-closed-issues-shield]: https://img.shields.io/github/issues-closed-raw/shubhamsharma11/lanflex?color=blue&label=closed%20issues&style=for-the-badge
+
+[github-closed-issues-url]: https://github.com/shubhamsharma11/lan-flex/issues?q=is%3Aissue+is%3Aclosed
+
+[dashboard]: images/screenshots/dashboard.jpeg
+
+[videos]: images/screenshots/videos.jpeg
+
+[video-player]: images/screenshots/video%20player.jpeg
+
+[audios]: images/screenshots/audios.jpeg
+
+[audio-player]: images/screenshots/audio%20player.jpeg
+
+[images]: images/screenshots/images.jpg
+
+[image-viewer]: images/screenshots/image%20viewer.jpeg
+
+[upload]: images/screenshots/upload.jpg
+
+[task-history]: images/screenshots/task%20history.jpg
+
+[product-screenshot2]: images/branch.png
+
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+
+[Next-url]: https://nextjs.org/
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+
+[React-url]: https://reactjs.org/
+
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+
+[Vue-url]: https://vuejs.org/
+
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+
+[Angular-url]: https://angular.io/
+
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+
+[Svelte-url]: https://svelte.dev/
+
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+
+[Laravel-url]: https://laravel.com
+
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+
+[Bootstrap-url]: https://getbootstrap.com
+
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+
+[JQuery-url]: https://jquery.com 
